@@ -1,0 +1,19 @@
+{
+  "name": "pagopa-receipt-pdf",
+  "version": "1.0.0",
+  "description": "Template used to generate pagoPA PDF receipts",
+  "main": "index.js",
+  "scripts": {
+    "generate": "hbs -H ../helpers/eq.js -H ../helpers/not.js --data ../json/authenticated-pdf.json -e html -- ./template.hbs && node generatePDF"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "hbs-cli": "^1.4.1",
+    "puppeteer": "^18.0.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1",
+    "stylelint": "^14.12.0",
+    "stylelint-prettier": "^2.0.0"
+  }
+}

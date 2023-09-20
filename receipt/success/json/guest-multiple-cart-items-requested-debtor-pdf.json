@@ -1,0 +1,51 @@
+{
+  "transaction": {
+    "id": "F57E2F8E-25FF-4183-AB7B-4A5EC1A96644",
+    "timestamp": "24 ottobre 2022, 18:45:56",
+    "amount": "224,00",
+    "psp": {
+      "name": "Nexi",
+      "fee": {
+        "amount": "2,00"
+      }
+    },
+    "requestedByDebtor": true
+  },
+  "cart": {
+    "items": [
+      {
+        "refNumber": {
+          "type": "codiceAvviso",
+          "value": "1234 5678 9012 3456 78"
+        },
+        "debtor": {
+          "fullName": "Antonio Griffo Focas Flavio Angelo Ducas Comneno Porfirogenito Gagliardi De Curtis di Bisanzio",
+          "taxCode": "BNCGSP70A12F205X"
+        },
+        "payee": {
+          "name": "Comune di Controguerra",
+          "taxCode": 82001760675
+        },
+        "subject": "Pagamento Retta Scolastica 2024 Istituto Comprensivo &quot;Leonardo Da Vinci&quot; Grosseto",
+        "amount": "150,00"
+      },
+      {
+        "refNumber": {
+          "type": "IUV",
+          "value": "123456789012345678"
+        },
+        "debtor": {
+          "fullName": "Giuseppe Bianchi",
+          "taxCode": "BNCGSP70A12F205X"
+        },
+        "payee": {
+          "name": "Comune di Controguerra",
+          "taxCode": 82001760675
+        },
+        "subject": "Multa per eccesso di velocit&agrave",
+        "amount": "72,00"
+      }
+    ],
+    "amountPartial": "222,00"
+  }
+}
