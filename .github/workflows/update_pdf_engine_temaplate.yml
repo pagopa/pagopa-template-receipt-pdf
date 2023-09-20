@@ -1,0 +1,42 @@
+name: Update Pdf Engine
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'receipt/success/pdf/style.css'
+      - 'receipt/success/pdf/template.html'
+      - 'receipt/success/pdf/template.hbs'
+
+  workflow_dispatch:
+
+jobs:
+  update_pdf_engine_temaplate:
+    name: Update Pdf Template
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # prepare pdf template for engine
+      # create tmp folder template
+      # copy all needed files 
+      - run: |
+          echo "Start..."
+          
+
+      # open a PR on infra repo
+      - name: Create pull request
+        uses: jacopocarlini/action-pull-request-another-repo@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.BOT_TOKEN_GITHUB }}
+        with:
+          source_folder: 'receipt/success/pdf'
+          destination_repo: 'pagopa/pagopa-infra'
+          destination_folder: 'src/domains/afm-app/api/marketplace-service/v1'
+          destination_base_branch: 'main'
+          destination_head_branch: 'pagopa-template-receipt-pdf-update'
+          user_email: 'github-bot@pagopa.it'
+          user_name: 'pagopa-github-bot'
+          allow_force_push: 'true'
