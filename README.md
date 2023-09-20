@@ -3,13 +3,14 @@
 This repo contains the pdf receipt templates used by pagoPA
 
 - [🧾 pagopa-template-receipt-pdf](#-pagopa-template-receipt-pdf)
+  - [Dependecies](#dependecies)
   - [How to apply changes](#how-to-apply-changes)
   - [How to install and run pdf generator](#how-to-install-and-run-pdf-generator)
   - [Compatibility](#compatibility)
   - [Related mail templates](#related-mail-templates)
 
 
-## Dependecies
+## Dependecies
 
 - Node JS (👀 `.node-version` file), _optional_ see [nvm](https://github.com/nvm-sh/nvm)
 - [yarn](https://yarnpkg.com/)
