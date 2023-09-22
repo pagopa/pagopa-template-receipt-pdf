@@ -1,0 +1,53 @@
+name: Update receipt-pdf-generator
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "receipt/success/pdf/assets"
+      - "receipt/success/pdf/style.css"
+      - "receipt/success/pdf/template.hbs"
+
+  workflow_dispatch:
+
+jobs:
+  update_pdf_engine_temaplate:
+    name: Update receipt-pdf-generator
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # prepare receipt-pdf-generator for engine
+      # create tmp folder template
+      # copy all needed files
+      - name: Zip files in temp directory
+        shell: bash
+        id: zip_files
+        run: |
+          cd receipt/success/pdf
+          mv -v "template.hbs" "template.html"
+          mkdir -p tmp
+          cd tmp
+          zip template ../template.html ../style.css ../assets/*
+      # open a PR on infra repo
+      - name: Create pull request
+        uses: jacopocarlini/action-pull-request-another-repo@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.BOT_TOKEN_GITHUB }}
+        with:
+          source_folder: "receipt/success/pdf/tmp"
+          destination_repo: "pagopa/pagopa-receipt-pdf-generator"
+          destination_folder: "src/main/resources"
+          destination_base_branch: "main"
+          destination_head_branch: "pagopa-template-receipt-pdf-update"
+          user_email: "github-bot@pagopa.it"
+          user_name: "pagopa-github-bot"
+          allow_force_push: "true"
+      - name: Delete temp directory
+        shell: bash
+        id: delete_tmp
+        run: |
+            cd receipt/success/pdf
+            rm -rf tmp
