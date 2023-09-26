@@ -32,7 +32,7 @@ jobs:
           cp style.css tmp/
           cp -pR assets tmp/
           cd tmp
-          zip -r template.zip *
+          zip -r partial_template.zip *
           rm -rf assets template.html style.css
       # open a PR on infra repo
       - name: Create pull request
