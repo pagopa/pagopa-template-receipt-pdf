@@ -27,10 +27,13 @@ jobs:
         id: zip_files
         run: |
           cd receipt/success/pdf
-          mv -v "template.hbs" "template.html"
           mkdir -p tmp
+          cp template.hbs tmp/template.html
+          cp style.css tmp/
+          cp -pR assets tmp/
           cd tmp
-          zip template ../template.html ../style.css ../assets/*
+          zip -r template.zip *
+          rm -rf assets template.html style.css
       # open a PR on infra repo
       - name: Create pull request
         uses: jacopocarlini/action-pull-request-another-repo@main
@@ -45,9 +48,3 @@ jobs:
           user_email: "github-bot@pagopa.it"
           user_name: "pagopa-github-bot"
           allow_force_push: "true"
-      - name: Delete temp directory
-        shell: bash
-        id: delete_tmp
-        run: |
-            cd receipt/success/pdf
-            rm -rf tmp
