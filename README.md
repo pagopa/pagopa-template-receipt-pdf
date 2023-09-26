@@ -46,7 +46,11 @@ success Saved lockfile.
 then typing :
 
 ```sh
-yarn generate
+yarn generate-complete
+```
+or
+```sh
+yarn generate-partial
 ```
 
 if all right you'll see something like that 
