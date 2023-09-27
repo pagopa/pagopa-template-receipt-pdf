@@ -21,9 +21,9 @@ jobs:
       # prepare receipt-pdf-notifier
       # create tmp folder
       # copy all needed files
-      - name: Zip files in temp directory
+      - name: Copy files in temp directory
         shell: bash
-        id: zip_files
+        id: copy_files
         run: |
           cd io-message
           mkdir -p tmp
