@@ -1,0 +1,45 @@
+name: Update receipt-pdf-notifier
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "io-message/debtor.md"
+      - "io-message/payer.md"
+
+  workflow_dispatch:
+
+jobs:
+  update_receipt_notifier_markdown:
+    name: Update receipt-pdf-notifier
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # prepare receipt-pdf-notifier
+      # create tmp folder
+      # copy all needed files
+      - name: Zip files in temp directory
+        shell: bash
+        id: zip_files
+        run: |
+          cd io-message
+          mkdir -p tmp
+          cp debtor.md tmp/debtor.md
+          cp payer.md tmp/payer.md
+      # open a PR on infra repo
+      - name: Create pull request
+        uses: jacopocarlini/action-pull-request-another-repo@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.BOT_TOKEN_GITHUB }}
+        with:
+          source_folder: "io-message/tmp"
+          destination_repo: "pagopa/pagopa-receipt-pdf-notifier"
+          destination_folder: "src/main/resources"
+          destination_base_branch: "main"
+          destination_head_branch: "pagopa-template-receipt-pdf-update"
+          user_email: "github-bot@pagopa.it"
+          user_name: "pagopa-github-bot"
+          allow_force_push: "true"
