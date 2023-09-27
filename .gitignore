@@ -134,3 +134,4 @@ package-lock.json
 # custom
 **/*.pdf
 *.DS_Store
+**/.terraform/**
