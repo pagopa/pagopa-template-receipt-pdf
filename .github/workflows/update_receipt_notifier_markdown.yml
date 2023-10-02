@@ -21,25 +21,34 @@ jobs:
       # prepare receipt-pdf-notifier
       # create tmp folder
       # copy all needed files
-      - name: Copy files in temp directory
+      # jq '.[] | .markdown' debtor.json
+      # yq -yi '.a.b |= "frog"' values-dev-copy.yaml
+      - name: Extract subject and markdown from json debtor/payer files
         shell: bash
-        id: copy_files
+        id: extract_subject_markdown
         run: |
-          cd io-message
-          mkdir -p tmp
-          cp debtor.md tmp/debtor.md
-          cp payer.md tmp/payer.md
+          cd io-message/templates
+          echo "debtor ..."
+          MARKDOWN_DEBTOR=`jq '.[] | .markdown' debtor.json`
+          SUBJECT_DEBTOR=`jq '.[] | .subject' debtor.json`
+          echo "payer ..."
+          MARKDOWN_PAYER=`jq '.[] | .markdown' payer.json`
+          SUBJECT_PAYER=`jq '.[] | .subject' payer.json`
+          sed -i -e 's/MARKDOWN_DEBTORplaceholder/$MARKDOWN_DEBTOR/g' ./values-dev.yaml
+          sed -i -e 's/SUBJECT_DEBTORplaceholder/$SUBJECT_DEBTOR/g' ./values-dev.yaml
+          sed -i -e 's/MARKDOWN_PAYERplaceholder/$MARKDOWN_PAYER/g' ./values-dev.yaml
+          sed -i -e 's/SUBJECT_PAYERplaceholder/$SUBJECT_PAYER/g' ./values-dev.yaml
       # open a PR on notifier repo
       - name: Create pull request
         uses: jacopocarlini/action-pull-request-another-repo@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.BOT_TOKEN_GITHUB }}
         with:
-          source_folder: "io-message/tmp"
+          source_folder: "io-message/templates/helm"
           destination_repo: "pagopa/pagopa-receipt-pdf-notifier"
-          destination_folder: "src/main/resources"
+          destination_folder: "helm"
           destination_base_branch: "main"
-          destination_head_branch: "pagopa-template-receipt-pdf-update"
+          destination_head_branch: "pagopa-receipt-message-template-pdf-update"
           user_email: "github-bot@pagopa.it"
           user_name: "pagopa-github-bot"
           allow_force_push: "true"
