@@ -34,7 +34,7 @@ jobs:
           cd tmp
           zip -r template.zip *
           rm -rf assets template.html style.css
-      # open a PR on infra repo
+      # open a PR on generator repo
       - name: Create pull request
         uses: jacopocarlini/action-pull-request-another-repo@main
         env:

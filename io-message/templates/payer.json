@@ -1,0 +1,6 @@
+{
+  "content": {
+    "subject": "Ricevuta del pagamento a {cart.items[0].payee.name}",
+    "markdown": "Hai pagato **{transaction.amount}** € a **{cart.items[0].payee.name}** per **{cart.items[0].subject}**.\n\nEcco la ricevuta con i dettagli."
+  }
+}
