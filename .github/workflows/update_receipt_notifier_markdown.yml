@@ -34,10 +34,10 @@ jobs:
           echo "payer ..."
           MARKDOWN_PAYER=`jq '.[] | .markdown' payer.json`
           SUBJECT_PAYER=`jq '.[] | .subject' payer.json`
-          sed -i -e 's/MARKDOWN_DEBTORplaceholder/$MARKDOWN_DEBTOR/g' ./values-dev.yaml
-          sed -i -e 's/SUBJECT_DEBTORplaceholder/$SUBJECT_DEBTOR/g' ./values-dev.yaml
-          sed -i -e 's/MARKDOWN_PAYERplaceholder/$MARKDOWN_PAYER/g' ./values-dev.yaml
-          sed -i -e 's/SUBJECT_PAYERplaceholder/$SUBJECT_PAYER/g' ./values-dev.yaml
+          sed -i -e 's/MARKDOWN_DEBTORplaceholder/$MARKDOWN_DEBTOR/g' ./helm/values-dev.yaml
+          sed -i -e 's/SUBJECT_DEBTORplaceholder/$SUBJECT_DEBTOR/g' ./helm/values-dev.yaml
+          sed -i -e 's/MARKDOWN_PAYERplaceholder/$MARKDOWN_PAYER/g' ./helm/values-dev.yaml
+          sed -i -e 's/SUBJECT_PAYERplaceholder/$SUBJECT_PAYER/g' ./helm/values-dev.yaml
       # open a PR on notifier repo
       - name: Create pull request
         uses: jacopocarlini/action-pull-request-another-repo@main
