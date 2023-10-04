@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.3">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.4">
 
 <head>
   <title>Il riepilogo del tuo pagamento</title>
@@ -39,7 +39,7 @@
 
               {{#with user.data}}
               <dl class="data-key-value">
-                <dt>Pagato da</dt>
+                <dt>Eseguito da</dt>
                 <dd class="entityGroup">
                   <span class="entityName">{{firstName}} {{lastName}}</span>
                   <span class="entityCode">{{taxCode}}</span>
@@ -229,13 +229,10 @@
 
       <footer>
 
-
-        {{#if user.data.taxCode}}
         <p>
-          Poich&eacute; hai effettuato questo pagamento tramite uno strumento tracciabile, puoi usare questa ricevuta
-          per le tue detrazioni o deduzioni fiscali.
+          Questa ricevuta attesta il pagamento eseguito. Rivolgiti all’Ente Creditore se hai bisogno della quietanza
+          liberatoria.
         </p>
-        {{/if}}
 
         <div class="company-info">
           <div class="pagopa-company-address">
