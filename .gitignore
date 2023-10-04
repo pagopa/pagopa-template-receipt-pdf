@@ -131,6 +131,9 @@ dist
 yarn.lock
 package-lock.json
 
+# template
+receipt/success/pdf/template.html
+
 # custom
 **/*.pdf
 *.DS_Store
