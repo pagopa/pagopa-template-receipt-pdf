@@ -31,7 +31,7 @@
       {
         "refNumber": {
           "type": "codiceAvviso",
-          "value": "1234 5678 9012 3456 78"
+          "value": "123456789012345678"
         },
         "debtor": {
           "fullName": "Giuseppe Bianchi",
