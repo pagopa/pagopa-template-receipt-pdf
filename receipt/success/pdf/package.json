@@ -4,8 +4,8 @@
   "description": "Template used to generate pagoPA PDF receipts",
   "main": "index.js",
   "scripts": {
-    "generate-complete": "hbs -H ../helpers/eq.js -H ../helpers/not.js --data ../json/authenticated-pdf.json -e html -- ./template.hbs && node generatePDF",
-    "generate-partial": "hbs -H ../helpers/eq.js -H ../helpers/not.js --data ../json/guest-requested-debtor-pdf.json -e html -- ./template.hbs && node generatePDF"
+    "generate-complete": "hbs -H ../helpers/eq.js -H ../helpers/not.js -H ../helpers/splitAndSpace.js --data ../json/authenticated-pdf.json -e html -- ./template.hbs && node generatePDF",
+    "generate-partial": "hbs -H ../helpers/eq.js -H ../helpers/not.js -H ../helpers/splitAndSpace.js --data ../json/guest-requested-debtor-pdf.json -e html -- ./template.hbs && node generatePDF"
   },
   "license": "ISC",
   "dependencies": {
