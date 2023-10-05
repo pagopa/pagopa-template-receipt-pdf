@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.5">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.6">
 
 <head>
   <title>Il riepilogo del tuo pagamento</title>
@@ -171,7 +171,7 @@
                 {{#eq this.refNumber.type "codiceAvviso"}}
                 <dl class="data-key-value right-align">
                   <dt>Codice avviso</dt>
-                  <dd class="entityCode">{{this.refNumber.value}}</dd>
+                  <dd class="entityCode">{{splitAndSpace this.refNumber.value}}</dd>
                 </dl>
                 {{/eq}}
 
