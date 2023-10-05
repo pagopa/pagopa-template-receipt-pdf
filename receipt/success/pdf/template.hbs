@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.6">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.7">
 
 <head>
   <title>Il riepilogo del tuo pagamento</title>
@@ -24,10 +24,12 @@
           <img class="logo" src="assets/logo-pagoPa.svg" />
           <h1 class="title">Ricevuta di pagamento</h1>
         </section>
+        {{#if transaction.psp}}
         <dl class="psp-header">
           <dt>Emessa da</dt>
           <dd><img class="psp-logo" alt={{transaction.psp.name}} src={{transaction.psp.logo}} /></dd>
         </dl>
+        {{/if}}
       </header>
 
       <main>
@@ -100,10 +102,12 @@
               {{/if}}
 
               {{#unless transaction.requestedByDebtor}}
+              {{#if transaction.psp}}
               <dl class="data-key-value">
                 <dt>Gestore della transazione (PSP)</dt>
                 <dd class="data-value-big">{{transaction.psp.name}}</dd>
               </dl>
+              {{/if}}
               {{/unless}}
 
               <dl class="data-key-value">
@@ -203,10 +207,12 @@
             {{/not}}
 
             <!-- Commissione -->
+            {{#if transaction.psp}}
             <dl class="transaction-summary-key-value">
               <dt>Commissione (applicata da {{transaction.psp.name}})</dt>
               <dd>{{transaction.psp.fee.amount}}&nbsp;&euro;</dd>
             </dl>
+            {{/if}}
 
             <!-- Totale -->
             <dl class="transaction-summary-key-value total-amount">
@@ -242,6 +248,9 @@
               00187, Roma
             </p>
           </div>
+
+          <!-- Informazioni sul PSP -->
+          {{#if transaction.psp}}
           <div class="psp-company-address">
             <p><strong>Pagamento gestito da {{transaction.psp.companyName}}</strong></p>
             <p>
@@ -249,6 +258,8 @@
               {{transaction.psp.postalCode}}, {{transaction.psp.city}} ({{transaction.psp.province}})
             </p>
           </div>
+          {{/if}}
+
         </div>
 
         <p>Serve aiuto? Visita <strong><u>pagopa.gov.it/assistenza</u></strong> e comunica l'ID:
