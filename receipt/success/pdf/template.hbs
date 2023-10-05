@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.4">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.5">
 
 <head>
   <title>Il riepilogo del tuo pagamento</title>
@@ -26,7 +26,7 @@
         </section>
         <dl class="psp-header">
           <dt>Emessa da</dt>
-          <dd><img class="psp-logo" src="assets/nexi-logo.png" /></dd>
+          <dd><img class="psp-logo" alt={{transaction.psp.name}} src={{transaction.psp.logo}} /></dd>
         </dl>
       </header>
 
@@ -243,10 +243,10 @@
             </p>
           </div>
           <div class="psp-company-address">
-            <p><strong>Pagamento gestito da Nexi Payments S.p.A.</strong></p>
+            <p><strong>Pagamento gestito da {{transaction.psp.companyName}}</strong></p>
             <p>
-              Corso Sempione, 55<br />
-              20149, Milano
+              {{transaction.psp.address}}, {{transaction.psp.buildingNumber}}<br />
+              {{transaction.psp.postalCode}}, {{transaction.psp.city}} ({{transaction.psp.province}})
             </p>
           </div>
         </div>
