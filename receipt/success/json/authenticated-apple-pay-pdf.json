@@ -4,7 +4,14 @@
     "timestamp": "24 ottobre 2022, 18:45:56",
     "amount": "152,00",
     "psp": {
-      "name": "American Express Payment Services",
+      "logo": "assets/nexi-logo.png",
+      "name": "Nexi",
+      "companyName": "Nexi Payments S.p.A.",
+      "address": "Corso Sempione",
+      "buildingNumber": "55",
+      "postalCode": "20149",
+      "city": "Milano",
+      "province": "MI",
       "fee": {
         "amount": "2,00"
       }
