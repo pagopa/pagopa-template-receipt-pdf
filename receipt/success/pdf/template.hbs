@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.7">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.8">
 
 <head>
   <title>Il riepilogo del tuo pagamento</title>
@@ -24,7 +24,7 @@
           <img class="logo" src="assets/logo-pagoPa.svg" />
           <h1 class="title">Ricevuta di pagamento</h1>
         </section>
-        {{#if transaction.psp}}
+        {{#if transaction.psp.logo}}
         <dl class="psp-header">
           <dt>Emessa da</dt>
           <dd><img class="psp-logo" alt={{transaction.psp.name}} src={{transaction.psp.logo}} /></dd>
@@ -43,7 +43,7 @@
               <dl class="data-key-value">
                 <dt>Eseguito da</dt>
                 <dd class="entityGroup">
-                  <span class="entityName">{{firstName}} {{lastName}}</span>
+                  <span class="entityName">{{fullName}}</span>
                   <span class="entityCode">{{taxCode}}</span>
                 </dd>
               </dl>
@@ -207,7 +207,7 @@
             {{/not}}
 
             <!-- Commissione -->
-            {{#if transaction.psp}}
+            {{#if transaction.psp.fee}}
             <dl class="transaction-summary-key-value">
               <dt>Commissione (applicata da {{transaction.psp.name}})</dt>
               <dd>{{transaction.psp.fee.amount}}&nbsp;&euro;</dd>

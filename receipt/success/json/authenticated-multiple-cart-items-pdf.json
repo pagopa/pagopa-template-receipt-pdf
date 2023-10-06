@@ -27,8 +27,7 @@
   },
   "user": {
     "data": {
-      "firstName": "Marzia",
-      "lastName": "Roccaraso",
+      "fullName": "Marzia Roccaraso",
       "taxCode": "RCCMRZ88A52C409A"
     },
     "email": "nome.cognome@pagopa.it"
