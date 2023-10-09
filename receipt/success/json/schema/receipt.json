@@ -1,0 +1,228 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PDF Receipt template",
+    "type": "object",
+    "properties": {
+      "transaction": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "string"
+          },
+          "psp": {
+            "type": "object",
+            "properties": {
+              "logo": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "companyName": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              },
+              "buildingNumber": {
+                "type": "string"
+              },
+              "postalCode": {
+                "type": "string"
+              },
+              "city": {
+                "type": "string"
+              },
+              "province": {
+                "type": "string"
+              },
+              "fee": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "amount"
+                ]
+              }
+            },
+            "required": [
+              "logo",
+              "name",
+              "companyName",
+              "address",
+              "buildingNumber",
+              "postalCode",
+              "city",
+              "province",
+              "fee"
+            ]
+          },
+          "requestedByDebtor": {
+            "type": "boolean"
+          },
+          "rrn": {
+            "type": "string"
+          },
+          "authCode": {
+            "type": "string"
+          },
+          "paymentMethod": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "accountHolder": {
+                "type": "string"
+              },
+              "logo": {
+                "type": "string"
+              },
+              "extraFee": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "name",
+              "accountHolder",
+              "logo",
+              "extraFee"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "timestamp",
+          "amount",
+          "psp",
+          "requestedByDebtor",
+          "rrn",
+          "authCode",
+          "paymentMethod"
+        ]
+      },
+      "user": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              },
+              "taxCode": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "firstName",
+              "lastName",
+              "taxCode"
+            ]
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "data",
+          "email"
+        ]
+      },
+      "cart": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "refNumber": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "value"
+                  ]
+                },
+                "debtor": {
+                  "type": "object",
+                  "properties": {
+                    "fullName": {
+                      "type": "string"
+                    },
+                    "taxCode": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "fullName",
+                    "taxCode"
+                  ]
+                },
+                "payee": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "taxCode": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "taxCode"
+                  ]
+                },
+                "subject": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "refNumber",
+                "debtor",
+                "payee",
+                "subject",
+                "amount"
+              ]
+            }
+          },
+          "amountPartial": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "items",
+          "amountPartial"
+        ]
+      }
+    },
+    "required": [
+      "transaction",
+      "user",
+      "cart"
+    ]
+  }
