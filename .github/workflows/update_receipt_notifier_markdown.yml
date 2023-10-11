@@ -30,14 +30,14 @@ jobs:
           cd io-message/templates
           echo "debtor ..."
           MARKDOWN_DEBTOR=`jq '.[] | .markdown' debtor.json`
-          replMARKDOWN_DEBTOR=$(sed -e 's/[&\\/]/\\&/g; s/$/\\/' -e '$s/\\$//' <<<"$MARKDOWN_DEBTOR" | base64  -w 0)
+          replMARKDOWN_DEBTOR=$(sed -e 's/[&\\/]/\\&/g; s/$/\\/' -e '$s/\\$//' <<<"$MARKDOWN_DEBTOR")
           SUBJECT_DEBTOR=`jq '.[] | .subject' debtor.json`
-          replSUBJECT_DEBTOR=$(sed -e 's/[&\\/]/\\&/g; s/$/\\/' -e '$s/\\$//' <<<"$SUBJECT_DEBTOR" | base64  -w 0)
+          replSUBJECT_DEBTOR=$(sed -e 's/[&\\/]/\\&/g; s/$/\\/' -e '$s/\\$//' <<<"$SUBJECT_DEBTOR")
           echo "payer ..."
           MARKDOWN_PAYER=`jq '.[] | .markdown' payer.json`
-          replMARKDOWN_PAYER=$(sed -e 's/[&\\/]/\\&/g; s/$/\\/' -e '$s/\\$//' <<<"$MARKDOWN_PAYER" | base64  -w 0)
+          replMARKDOWN_PAYER=$(sed -e 's/[&\\/]/\\&/g; s/$/\\/' -e '$s/\\$//' <<<"$MARKDOWN_PAYER")
           SUBJECT_PAYER=`jq '.[] | .subject' payer.json`
-          replSUBJECT_PAYER=$(sed -e 's/[&\\/]/\\&/g; s/$/\\/' -e '$s/\\$//' <<<"$SUBJECT_PAYER" | base64  -w 0)
+          replSUBJECT_PAYER=$(sed -e 's/[&\\/]/\\&/g; s/$/\\/' -e '$s/\\$//' <<<"$SUBJECT_PAYER")
           sed -i -e "s/MARKDOWN_DEBTORplaceholder/$replMARKDOWN_DEBTOR/g" ./helm/values-dev.yaml
           sed -i -e "s/SUBJECT_DEBTORplaceholder/$replSUBJECT_DEBTOR/g" ./helm/values-dev.yaml
           sed -i -e "s/MARKDOWN_PAYERplaceholder/$replMARKDOWN_PAYER/g" ./helm/values-dev.yaml
