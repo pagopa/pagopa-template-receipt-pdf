@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - "io-message/debtor.json"
-      - "io-message/payer.json"
+      - "io-message/templates/debtor.json"
+      - "io-message/templates/payer.json"
 
   workflow_dispatch:
 
