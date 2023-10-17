@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.10">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.11">
 
 <head>
   <title>Il riepilogo del tuo pagamento</title>
@@ -44,17 +44,9 @@
               </dl>
               {{/with}}
 
-
-              {{#if user.email}}
-              <dl class="data-key-value">
-                <dt>Indirizzo email</dt>
-                <dd class="data-value-big">{{user.email}}</dd>
-              </dl>
-              {{/if}}
-
               {{#if transaction.rrn}}
               <dl class="data-key-value">
-                <dt>RRN</dt>
+                <dt>ID transazione (RRN)</dt>
                 <dd class="entityCode">{{transaction.rrn}}</dd>
               </dl>
               {{/if}}
@@ -63,13 +55,6 @@
               <dl class="data-key-value">
                 <dt>Codice autorizzativo</dt>
                 <dd class="entityCode">{{transaction.authCode}}</dd>
-              </dl>
-              {{/if}}
-
-              {{#if transaction.requestedByDebtor}}
-              <dl class="data-key-value">
-                <dt>Gestore della transazione (PSP)</dt>
-                <dd class="data-value-big">{{transaction.psp.name}}</dd>
               </dl>
               {{/if}}
 
@@ -104,6 +89,7 @@
                 <dd class="data-value-big">{{transaction.psp.name}}</dd>
               </dl>
               {{/if}}
+
               {{/unless}}
 
               <dl class="data-key-value">
