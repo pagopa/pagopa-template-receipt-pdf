@@ -77,7 +77,7 @@ body {
   display: flex;
   height: 100%;
   flex-direction: column;
-  gap: 5mm;
+  gap: 6mm;
   background-color: white;
 }
 
@@ -126,8 +126,9 @@ body {
 }
 
 .psp-logo {
-  height: 6mm;
   width: auto;
+  max-height: 8mm;
+  max-width: 30mm;
 }
 
 main {
