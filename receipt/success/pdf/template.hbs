@@ -76,7 +76,8 @@
             <section class="transaction-data-group">
 
               {{#unless transaction.requestedByDebtor}}
-              {{#if transaction.paymentMethod.name}} <!-- only payer -->
+
+              {{#if transaction.paymentMethod.name}}
               <dl class="data-key-value">
                 <dt>Metodo di pagamento</dt>
                 <dd class="data-value-big">
@@ -88,14 +89,13 @@
               </dl>
               {{/if}}
 
-              {{#if transaction.paymentMethod.accountHolder}} <!-- only payer -->
+              {{#if transaction.paymentMethod.accountHolder}}
               <dl class="data-key-value">
                 <dt>Intestato a</dt>
                 <dd class="data-value-big">{{transaction.paymentMethod.accountHolder}}</dd>
               </dl>
               {{/if}}
 
-              <!-- {{#unless transaction.requestedByDebtor}} -->
               {{#if transaction.psp}}
               <dl class="data-key-value">
                 <dt>Gestore della transazione (PSP)</dt>
