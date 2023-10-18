@@ -173,13 +173,23 @@ def create_info_file(tax_mapping_table: dict,
 
 
 # main
-parser = argparse.ArgumentParser(description="Just an example", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser = argparse.ArgumentParser(description="How to use the script", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 # parser = argparse.ArgumentParser()
-parser.add_argument('--psp-registry-table', type=Path, required=True, help='Path to the \'Registry\' psp csv file.')
-parser.add_argument('--psp-contracts-table', type=Path, required=True, help='Path to the \'Contracts\' psp csv file.')
-parser.add_argument('--psp-config-file', type=Path, required=True, help='Path to the generated PSP info file.')
-parser.add_argument('--psp-cdn-logo', type=Path, required=True, help='Path to the \'CDN\' logo.')
-parser.add_argument('--psp-short-name', type=Path, required=True, help='Path to the \'short name list file\'.')
+parser.add_argument('--psp-registry-table', type=Path, required=True,
+                    help='Path to the PSP \'registry\' csv file.',
+                    default='/input/contracts_crm_anagrafica.csv')
+parser.add_argument('--psp-contracts-table', type=Path, required=True,
+                    help='Path to the PSP \'contracts\' csv file.',
+                    default='/input/contracts_crm_contracts.csv ')
+parser.add_argument('--psp-short-name', type=Path, required=True,
+                    help='Path to the PSP \'short name list file\'.',
+                    default='/input/psp_short_name.csv ')
+parser.add_argument('--psp-config-file', type=Path, required=True,
+                    help='Path to the PSP configuration file to generate.',
+                    default='/output/psp_config_file.json')
+parser.add_argument('--psp-cdn-logo', type=Path, required=True,
+                    help='Path to the \'CDN\' to use to retrieve the logo at runtime.',
+                    default='assets.cdn.io.italia.it/logos/abi')
 args = parser.parse_args()
 dirname = os.path.dirname(__file__)
 
