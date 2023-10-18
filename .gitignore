@@ -138,3 +138,6 @@ receipt/success/pdf/template.html
 **/*.pdf
 *.DS_Store
 **/.terraform/**
+py-scripts/venv
+py-scripts/py-scripts.iml
+.idea
