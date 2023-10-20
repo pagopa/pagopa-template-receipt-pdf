@@ -189,7 +189,7 @@
             {{/not}}
 
             <!-- Commissione -->
-            {{#if transaction.psp.fee}}
+            {{#if transaction.psp.fee.amount}}
             <dl class="transaction-summary-key-value">
               <dt>Commissione (applicata da {{transaction.psp.name}})</dt>
               <dd>{{transaction.psp.fee.amount}}&nbsp;&euro;</dd>
