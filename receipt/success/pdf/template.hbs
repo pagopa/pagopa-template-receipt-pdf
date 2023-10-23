@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.11">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.12">
 
 <head>
   <title>Il riepilogo del tuo pagamento</title>
@@ -20,8 +20,8 @@
         {{#if transaction.psp.logo}}
         <dl class="psp-header">
           <dt>Emessa da</dt>
-          <dd style="display: inline-flex; align-self: flex-end">
-            <img class="psp-logo" alt={{transaction.psp.name}} src={{transaction.psp.logo}} />
+          <dd class="psp-logo">
+            <img alt={{transaction.psp.name}} src={{transaction.psp.logo}} />
           </dd>
         </dl>
         {{/if}}

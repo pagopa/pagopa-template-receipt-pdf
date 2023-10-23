@@ -126,9 +126,17 @@ body {
 }
 
 .psp-logo {
-  width: auto;
-  max-height: 8mm;
-  max-width: 30mm;
+  display: inline-flex;
+  align-self: flex-end;
+  height: 7.5mm;
+  width: 35mm;
+}
+
+.psp-logo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: top right;
 }
 
 main {
