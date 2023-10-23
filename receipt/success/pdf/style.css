@@ -171,6 +171,14 @@ footer * {
   margin: 0;
 }
 
+.footer-disclaimer {
+  line-height: 1.35;
+}
+
+.footer-disclaimer *+* {
+  margin-top: 1mm;
+}
+
 .transaction-id {
   font-family: var(--font-monospaced);
   font-weight: 500;
@@ -253,8 +261,7 @@ hr {
   display: grid;
   align-items: center;
   grid-template-columns: 9fr 3fr;
-  line-height: 1;
-  /* Avoid extra-space above/below */
+  line-height: 1.35;
 }
 
 .transaction-summary-key-value dt {
