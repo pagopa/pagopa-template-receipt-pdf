@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.12">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.13">
 
 <head>
   <title>Il riepilogo del tuo pagamento</title>
@@ -83,14 +83,14 @@
               </dl>
               {{/if}}
 
+              {{/unless}}
+
               {{#if transaction.psp}}
               <dl class="data-key-value">
                 <dt>Gestore della transazione (PSP)</dt>
                 <dd class="data-value-big">{{transaction.psp.name}}</dd>
               </dl>
               {{/if}}
-
-              {{/unless}}
 
               <dl class="data-key-value">
                 <dt>Data e ora</dt>
