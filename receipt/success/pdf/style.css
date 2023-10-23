@@ -156,7 +156,7 @@ footer {
   font-size: var(--caption-fsize);
   color: var(--secondary-color);
   display: grid;
-  row-gap: 4mm;
+  row-gap: 5mm;
 }
 
 footer * {
@@ -172,6 +172,7 @@ footer * {
   display: grid;
   grid-template-columns: 6fr 4fr;
   align-content: flex-start;
+  line-height: 1.35;
 }
 
 hr {
