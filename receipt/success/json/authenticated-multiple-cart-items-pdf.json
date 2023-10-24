@@ -23,7 +23,8 @@
       "logo": "../assets/methods/unionpay.png",
       "accountHolder": "Marzia Roccaraso",
       "extraFee": false
-    }
+    },
+    "processedByPagoPA": true
   },
   "user": {
     "data": {

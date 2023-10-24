@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.14">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.15">
 
 <head>
   <title>Il riepilogo del tuo pagamento</title>
@@ -17,6 +17,7 @@
           <img class="logo" src="assets/logo-pagoPa.svg" />
           <h1 class="title">Ricevuta di pagamento</h1>
         </section>
+        {{#if transaction.processedByPagoPA}}
         {{#if transaction.psp.logo}}
         <dl class="psp-header">
           <dt>Emessa da</dt>
@@ -24,6 +25,7 @@
             <img alt={{transaction.psp.name}} src={{transaction.psp.logo}} />
           </dd>
         </dl>
+        {{/if}}
         {{/if}}
       </header>
 
