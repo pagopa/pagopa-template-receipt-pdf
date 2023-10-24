@@ -16,6 +16,7 @@
         "amount": "2,00"
       }
     },
+    "processedByPagoPA": true,
     "requestedByDebtor": true
   },
   "cart": {

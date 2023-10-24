@@ -22,7 +22,8 @@
       "name": "Apple Pay",
       "logo": "../assets/methods/apple-pay.png",
       "extraFee": false
-    }
+    },
+    "processedByPagoPA": true
   },
   "user": {
     "data": {

@@ -22,7 +22,8 @@
       "name": "Conto corrente *1234",
       "accountHolder": "Marzia Roccaraso",
       "extraFee": true
-    }
+    },
+    "processedByPagoPA": true
   },
   "user": {
     "data": {

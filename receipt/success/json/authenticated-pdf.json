@@ -24,7 +24,7 @@
       "accountHolder": "Marzia Roccaraso",
       "extraFee": false
     },
-    "processedByPagoPA": false
+    "processedByPagoPA": true
   },
   "user": {
     "data": {
