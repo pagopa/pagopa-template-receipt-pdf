@@ -20,9 +20,9 @@ jobs:
       # prepare receipt-pdf-generator for engine
       # create tmp folder template
       # copy all needed files
-      - name: Zip files in temp directory
+      - name: Prepare file to transfer
         shell: bash
-        id: zip_files
+        id: transfer_file
         run: |
           cd py-scripts/psp/output
           mkdir -p tmp
