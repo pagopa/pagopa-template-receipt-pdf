@@ -6225,6 +6225,28 @@
         "city": "Milano",
         "province": "MI"
     },
+    "RZSBIT21036": {
+        "logo": "https://assets.cdn.io.italia.it/logos/abi/08249.png",
+        "fiscalCode": "00143170215",
+        "name": "Cassa Raiffeisen Campo di Trens",
+        "companyName": "Cassa Raiffeisen Campo Di Trens Societ\u00e0 Cooperativa (Raiffeisenkasse Freienfeld Gen.)",
+        "address": "Piazza Municipio",
+        "buildingNumber": "3",
+        "postalCode": "39040",
+        "city": "Campo Di Trens-Freienfeld",
+        "province": "BZ"
+    },
+    "ABI08249": {
+        "logo": "https://assets.cdn.io.italia.it/logos/abi/08249.png",
+        "fiscalCode": "00143170215",
+        "name": "Cassa Raiffeisen Campo di Trens",
+        "companyName": "Cassa Raiffeisen Campo Di Trens Societ\u00e0 Cooperativa (Raiffeisenkasse Freienfeld Gen.)",
+        "address": "Piazza Municipio",
+        "buildingNumber": "3",
+        "postalCode": "39040",
+        "city": "Campo Di Trens-Freienfeld",
+        "province": "BZ"
+    },
     "RZSBIT21023": {
         "logo": "https://assets.cdn.io.italia.it/logos/abi/08302.png",
         "fiscalCode": "00138880216",
@@ -6642,6 +6664,17 @@
         "postalCode": "40128",
         "city": "Bologna",
         "province": "BO"
+    },
+    "LB000484": {
+        "logo": "https://assets.cdn.io.italia.it/logos/abi/REVOL.png",
+        "fiscalCode": "100011706713",
+        "name": "Revolut",
+        "companyName": "Revolut Bank Uab",
+        "address": "Konstitucijos Ave.",
+        "buildingNumber": "21B",
+        "postalCode": "08130",
+        "city": "Vilnius",
+        "province": "EE"
     },
     "ABI03646": {
         "logo": "https://assets.cdn.io.italia.it/logos/abi/03646.png",
