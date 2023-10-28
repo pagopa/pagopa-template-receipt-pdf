@@ -92,12 +92,18 @@ def create_info_file(tax_mapping_table: dict,
     fiscal_code = ''
     abi = ''
     for row in file:
-        fiscal_code = row[3]
+        if row[3] is not None and row[3] != '':
+            fiscal_code = row[3]
+        elif row[2] is not None and row[2] != '':
+            fiscal_code = row[2]
+        else:
+            print("create_info_file|neither tax-number nor vat-number found for psp {}".format(row[1]))
+            continue
 
         # get idPsp
-        if row[3] in tax_mapping_table:
+        if fiscal_code in tax_mapping_table:
             id_psp = tax_mapping_table[fiscal_code]
-        elif row[3] in vat_mapping_table:
+        elif fiscal_code in vat_mapping_table:
             id_psp = vat_mapping_table[fiscal_code]
         else:
             print("create_info_file|fiscal code {} not found".format(fiscal_code))
@@ -128,8 +134,8 @@ def create_info_file(tax_mapping_table: dict,
             continue
 
         # address and building number management
-        address = row[50]
-        building_number = row[51]
+        address = row[5]
+        building_number = row[6]
 
         # company name management
         company_name = manage_company_name(company_name)
@@ -154,9 +160,9 @@ def create_info_file(tax_mapping_table: dict,
                     'companyName': company_name,
                     'address': address.title(),
                     'buildingNumber': building_number,
-                    'postalCode': row[5],
-                    'city': row[6].title(),
-                    'province': row[7]
+                    'postalCode': row[8],
+                    'city': row[9].title(),
+                    'province': row[10]
                 }
             })}
 
@@ -200,13 +206,13 @@ psp_short_name_file = "{}{}".format(dirname, args.psp_short_name)
 cdn_path = args.psp_cdn_logo
 
 # get mapping idPsp/taxcode
-tax_mapping_table = load_table(contracts_file, ',', 7, 2)  # key=tax_code, value=idPsp
-vat_mapping_table = load_table(contracts_file, ',', 8, 2)  # key=tax_code, value=idPsp
-tax_company_name_mapping_table = load_table(contracts_file, ',', 7, 5)  # key=tax_code, value=idPsp
-vat_company_name_mapping_table = load_table(contracts_file, ',', 8, 5)  # key=tax_code, value=idPsp
-tax_abi_mapping_table = load_table(contracts_file, ',', 8, 6)  # key=tax_code, value=idPsp
-vat_abi_mapping_table = load_table(contracts_file, ',', 7, 6)  # key=tax_code, value=idPsp
-short_name_mapping_table = load_table(psp_short_name_file, ',', 1, 0)  # key=tax_code, value=idPsp
+tax_mapping_table = load_table(contracts_file, ',', 8, 2)  # key=tax_code, value=idPsp
+vat_mapping_table = load_table(contracts_file, ',', 9, 2)  # key=tax_code, value=idPsp
+tax_company_name_mapping_table = load_table(contracts_file, ',', 8, 5)  # key=tax_code, value=idPsp
+vat_company_name_mapping_table = load_table(contracts_file, ',', 9, 5)  # key=tax_code, value=idPsp
+tax_abi_mapping_table = load_table(contracts_file, ',', 8, 7)  # key=tax_code, value=idPsp
+vat_abi_mapping_table = load_table(contracts_file, ',', 9, 7)  # key=tax_code, value=idPsp
+short_name_mapping_table = load_table(contracts_file, ',', 7, 6)  # key=tax_code, value=idPsp
 
 create_info_file(tax_mapping_table, vat_mapping_table, tax_company_name_mapping_table, vat_company_name_mapping_table,
                  tax_abi_mapping_table, vat_abi_mapping_table, short_name_mapping_table, registry_file, ',',
