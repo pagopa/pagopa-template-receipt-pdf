@@ -219,14 +219,18 @@ hr {
 
 .transaction-detail-group {
   display: grid;
-  grid-template-areas:
-    "paymentSubject paymentSubject paymentSubject"
+  grid-template-areas: "paymentSubject paymentSubject paymentSubject"
     "debtor creditor paymentData";
   grid-template-columns: 1fr 1fr 1fr;
   gap: 3mm;
 }
 
-.transaction-detail-paymentSubject {
+.transaction-detail-group:not(:has(.transaction-detail-paymentSubject)) {
+  grid-template-areas:
+    "debtor creditor paymentData";
+}
+
+.transaction-detail-paymentSubject:not(:empty) {
   grid-area: paymentSubject;
 }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.15">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.16">
 
 <head>
   <title>Il riepilogo del tuo pagamento</title>
@@ -109,19 +109,14 @@
 
             <section class="transaction-detail-group">
 
+              {{#if this.subject}}
               <div class="transaction-detail-paymentSubject">
-                <!-- Oggetto del pagamento (Carrello multiplo) -->
+                <!-- Oggetto del pagamento (Carrello singolo) -->
                 {{#not this.length 1}}
                 <h2 class="paymentSubject">{{{this.subject}}}</h2>
                 {{/not}}
-
-                <!-- Oggetto del pagamento (Carrello singolo) -->
-                {{#eq this.length 1}}
-                {{#if cart.items.[0].subject}}
-                <h2 class="paymentSubject">{{{cart.items.[0].subject}}}</h2>
-                {{/if}}
-                {{/eq}}
               </div>
+              {{/if}}
 
               <!-- Debitore (+ codice fiscale) -->
               {{#with this.debtor}}
