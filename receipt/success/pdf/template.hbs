@@ -125,7 +125,9 @@
               <dl class="data-key-value small transaction-detail-debtor">
                 <dt>Debitore</dt>
                 <dd class="entityGroup">
+                  {{#if fullName}}
                   <span class="entityName">{{fullName}}</span>
+                  {{/if}}
                   {{#if taxCode}}
                   <span class="entityCode">{{taxCode}}</span>
                   {{/if}}
