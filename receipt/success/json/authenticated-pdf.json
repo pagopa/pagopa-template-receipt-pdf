@@ -19,16 +19,16 @@
     "rrn": "1234567890",
     "authCode": "1234567890123456800",
     "paymentMethod": {
-      "name": "Carta Mastercard",
+      "name": "MASTERCARD",
       "logo": "assets/mastercard.png",
-      "accountHolder": "Marzia Roccaraso",
+      "accountHolder": "MARZIA ROCCARASO",
       "extraFee": false
     },
     "processedByPagoPA": true
   },
   "user": {
     "data": {
-      "fullName": "Marzia Roccaraso",
+      "fullName": "MARZIA ROCCARASO",
       "taxCode": "RCCMRZ88A52C409A"
     },
     "email": "nome.cognome@pagopa.it"
