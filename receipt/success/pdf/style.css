@@ -336,6 +336,10 @@ hr {
   margin-top: 0.1em;
 }
 
+.forcedCapitalCase {
+  text-transform: capitalize;
+}
+
 .payment-method-group {
   display: flex;
   align-items: center;

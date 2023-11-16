@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.16">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.17">
 
 <head>
   <title>Il riepilogo del tuo pagamento</title>
@@ -40,7 +40,9 @@
               <dl class="data-key-value">
                 <dt>Eseguito da</dt>
                 <dd class="entityGroup">
-                  <span class="entityName">{{fullName}}</span>
+                  {{#if fullName}}
+                  <span class="entityName forcedCapitalCase">{{lowercase fullName}}</span>
+                  {{/if}}
                   <span class="entityCode">{{taxCode}}</span>
                 </dd>
               </dl>
@@ -70,9 +72,9 @@
               <dl class="data-key-value">
                 <dt>Metodo di pagamento</dt>
                 <dd class="data-value-big">
-                  <div class="payment-method-group">
+                  <div class="payment-method-group forcedCapitalCase">
                     <img class="payment-method-logo" src={{transaction.paymentMethod.logo}} />
-                    {{transaction.paymentMethod.name}}
+                    {{lowercase transaction.paymentMethod.name}}
                   </div>
                 </dd>
               </dl>
@@ -81,7 +83,7 @@
               {{#if transaction.paymentMethod.accountHolder}}
               <dl class="data-key-value">
                 <dt>Intestato a</dt>
-                <dd class="data-value-big">{{transaction.paymentMethod.accountHolder}}</dd>
+                <dd class="data-value-big forcedCapitalCase">{{lowercase transaction.paymentMethod.accountHolder}}</dd>
               </dl>
               {{/if}}
 
@@ -123,7 +125,9 @@
               <dl class="data-key-value small transaction-detail-debtor">
                 <dt>Debitore</dt>
                 <dd class="entityGroup">
+                  {{#if fullName}}
                   <span class="entityName">{{fullName}}</span>
+                  {{/if}}
                   {{#if taxCode}}
                   <span class="entityCode">{{taxCode}}</span>
                   {{/if}}
@@ -237,7 +241,7 @@
             <p><strong>Ricevuta trasmessa da PagoPA S.p.A.</strong></p>
             <p>
               Piazza Colonna, 370<br />
-              00187, Roma
+              00187 Roma (RM)
             </p>
           </div>
 
@@ -247,7 +251,7 @@
             <p><strong>Pagamento gestito da {{transaction.psp.companyName}}</strong></p>
             <p>
               {{transaction.psp.address}}, {{transaction.psp.buildingNumber}}<br />
-              {{transaction.psp.postalCode}}, {{transaction.psp.city}} ({{transaction.psp.province}})
+              {{transaction.psp.postalCode}} {{transaction.psp.city}} ({{transaction.psp.province}})
             </p>
           </div>
           {{/if}}
