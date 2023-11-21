@@ -3,12 +3,12 @@
     "title": "PDF Receipt template",
     "type": "object",
     "properties": {
+      "serviceCustomerId": {
+        "type": "string"
+      },
       "transaction": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string"
-          },
           "timestamp": {
             "type": "string"
           },
