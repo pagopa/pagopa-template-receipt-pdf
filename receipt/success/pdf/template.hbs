@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.18">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.19">
 
 <head>
   <title>Il riepilogo del tuo pagamento</title>
@@ -126,7 +126,7 @@
                 <dt>Debitore</dt>
                 <dd class="entityGroup">
                   {{#if fullName}}
-                  <span class="entityName">{{fullName}}</span>
+                  <span class="entityName forcedCapitalCase">{{lowercase fullName}}</span>
                   {{/if}}
                   {{#if taxCode}}
                   <span class="entityCode">{{taxCode}}</span>
