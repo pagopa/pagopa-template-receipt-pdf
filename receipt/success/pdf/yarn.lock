@@ -553,7 +553,7 @@ globjoin@^0.1.4:
 
 handlebars-i18n@^1.6.3:
   version "1.6.3"
-  resolved "https://registry.npmjs.org/handlebars-i18n/-/handlebars-i18n-1.6.3.tgz"
+  resolved "https://registry.yarnpkg.com/handlebars-i18n/-/handlebars-i18n-1.6.3.tgz#af799088081809f5a5e6c521bb43554fe3bcf997"
   integrity sha512-IWZTOJ6OM/sZSuba6UTCZORRHUuien9CNbj+vmJdEG9l3skFscBVRIJdeftMicGJXT7rBbhCQM6xPpZSSrQsxw==
   dependencies:
     handlebars "^4.7.7"

@@ -15,12 +15,27 @@
       <header class="page-header">
         <section class="pagopa-header">
           <img class="logo" src="assets/logo-pagoPa.svg" />
-          <h1 class="title">Ricevuta di pagamento</h1>
+          <h1 class="title">
+            {{!-- Ricevuta di pagamento --}}
+            {{#if (localeIs "it")}}
+            {{__ "title.paymentReceipt"}}
+            {{else}}
+            {{__ "title.paymentReceipt" lng="it"}}<br />
+            {{__ "title.paymentReceipt"}}
+            {{/if}}
+          </h1>
         </section>
         {{#if transaction.processedByPagoPA}}
         {{#if transaction.psp.logo}}
         <dl class="psp-header">
-          <dt>Per conto di</dt>
+          <dt>
+            {{!-- Per conto di: --}}
+            {{#if (localeIs "it")}}
+            {{__ "title.onBehalfOf"}}
+            {{else}}
+            {{__ "title.onBehalfOf" lng="it"}} · {{__ "title.onBehalfOf"}}
+            {{/if}}
+          </dt>
           <dd class="psp-logo">
             <img alt={{transaction.psp.name}} src={{transaction.psp.logo}} />
           </dd>
@@ -38,7 +53,14 @@
 
               {{#with user.data}}
               <dl class="data-key-value">
-                <dt>Eseguito da</dt>
+                <dt>
+                  {{!-- Eseguito da --}}
+                  {{#if (localeIs "it")}}
+                  {{__ "field.paidBy"}}
+                  {{else}}
+                  {{__ "field.paidBy" lng="it"}} · {{__ "field.paidBy"}}
+                  {{/if}}
+                </dt>
                 <dd class="entityGroup">
                   {{#if fullName}}
                   <span class="entityName forcedCapitalCase">{{lowercase fullName}}</span>
@@ -50,14 +72,28 @@
 
               {{#if transaction.rrn}}
               <dl class="data-key-value">
-                <dt>ID transazione (RRN)</dt>
+                <dt>
+                  {{!-- ID transazione (RRN) --}}
+                  {{#if (localeIs "it")}}
+                  {{__ "field.rrn"}}
+                  {{else}}
+                  {{__ "field.rrn" lng="it"}} · {{__ "field.rrn"}}
+                  {{/if}}
+                </dt>
                 <dd class="entityCode">{{transaction.rrn}}</dd>
               </dl>
               {{/if}}
 
               {{#if transaction.authCode}}
               <dl class="data-key-value">
-                <dt>Codice autorizzativo</dt>
+                <dt>
+                  {{!-- Codice autorizzativo --}}
+                  {{#if (localeIs "it")}}
+                  {{__ "field.authCode"}}
+                  {{else}}
+                  {{__ "field.authCode" lng="it"}} · {{__ "field.authCode"}}
+                  {{/if}}
+                </dt>
                 <dd class="entityCode">{{transaction.authCode}}</dd>
               </dl>
               {{/if}}
@@ -70,7 +106,14 @@
 
               {{#if transaction.paymentMethod.name}}
               <dl class="data-key-value">
-                <dt>Metodo di pagamento</dt>
+                <dt>
+                  {{!-- Metodo di pagamento --}}
+                  {{#if (localeIs "it")}}
+                  {{__ "field.paymentMethod"}}
+                  {{else}}
+                  {{__ "field.paymentMethod" lng="it"}} · {{__ "field.paymentMethod"}}
+                  {{/if}}
+                </dt>
                 <dd class="data-value-big">
                   <div class="payment-method-group forcedCapitalCase">
                     <img class="payment-method-logo" src={{transaction.paymentMethod.logo}} />
@@ -82,7 +125,14 @@
 
               {{#if transaction.paymentMethod.accountHolder}}
               <dl class="data-key-value">
-                <dt>Intestato a</dt>
+                <dt>
+                  {{!-- Intestato a --}}
+                  {{#if (localeIs "it")}}
+                  {{__ "field.cardHolder"}}
+                  {{else}}
+                  {{__ "field.cardHolder" lng="it"}} · {{__ "field.cardHolder"}}
+                  {{/if}}
+                </dt>
                 <dd class="data-value-big forcedCapitalCase">{{lowercase transaction.paymentMethod.accountHolder}}</dd>
               </dl>
               {{/if}}
@@ -91,13 +141,27 @@
 
               {{#if transaction.psp}}
               <dl class="data-key-value">
-                <dt>Gestore della transazione (PSP)</dt>
+                <dt>
+                  {{!-- Gestore della transazione (PSP) --}}
+                  {{#if (localeIs "it")}}
+                  {{__ "field.psp"}}
+                  {{else}}
+                  {{__ "field.psp" lng="it"}} · {{__ "field.psp"}}
+                  {{/if}}
+                </dt>
                 <dd class="data-value-big">{{transaction.psp.name}}</dd>
               </dl>
               {{/if}}
 
               <dl class="data-key-value">
-                <dt>Data e ora</dt>
+                <dt>
+                  {{!-- Data e ora --}}
+                  {{#if (localeIs "it")}}
+                  {{__ "field.timestamp"}}
+                  {{else}}
+                  {{__ "field.timestamp" lng="it"}} · {{__ "field.timestamp"}}
+                  {{/if}}
+                </dt>
                 <dd class="data-value-big">{{transaction.timestamp}}</dd>
               </dl>
 
@@ -123,7 +187,15 @@
               <!-- Debitore (+ codice fiscale) -->
               {{#with this.debtor}}
               <dl class="data-key-value small transaction-detail-debtor">
-                <dt>Debitore</dt>
+
+                <dt>
+                  {{!-- Debitore --}}
+                  {{#if (localeIs "it")}}
+                  {{__ "field.debtor"}}
+                  {{else}}
+                  {{__ "field.debtor" lng="it"}} · {{__ "field.debtor"}}
+                  {{/if}}
+                </dt>
                 <dd class="entityGroup">
                   {{#if fullName}}
                   <span class="entityName forcedCapitalCase">{{lowercase fullName}}</span>
@@ -137,7 +209,14 @@
 
               <!-- Ente creditore (+ codice fiscale) -->
               <dl class="data-key-value small transaction-detail-creditor">
-                <dt>Ente Creditore</dt>
+                <dt>
+                  {{!-- Ente creditore --}}
+                  {{#if (localeIs "it")}}
+                  {{__ "field.payee"}}
+                  {{else}}
+                  {{__ "field.payee" lng="it"}} · {{__ "field.payee"}}
+                  {{/if}}
+                </dt>
                 <dd class="entityGroup">
                   <span class="entityName">{{this.payee.name}}</span>
                   <span class="entityCode">{{this.payee.taxCode}}</span>
@@ -157,14 +236,27 @@
                 <!-- Codice Avviso -->
                 {{#eq this.refNumber.type "codiceAvviso"}}
                 <dl class="data-key-value right-align">
-                  <dt>Codice avviso</dt>
+                  <dt>
+                    {{#if (localeIs "it")}}
+                    {{__ "field.noticeCode"}}
+                    {{else}}
+                    {{__ "field.noticeCode" lng="it"}} · {{__ "field.noticeCode"}}
+                    {{/if}}
+                  </dt>
                   <dd class="entityCode">{{splitAndSpace this.refNumber.value}}</dd>
                 </dl>
                 {{/eq}}
 
                 <!-- Importo -->
                 <dl class="data-key-value small right-align amount-value">
-                  <dt>Importo</dt>
+                  <dt>
+                    {{!-- Importo --}}
+                    {{#if (localeIs "it")}}
+                    {{__ "field.noticeAmount"}}
+                    {{else}}
+                    {{__ "field.noticeAmount" lng="it"}} · {{__ "field.noticeAmount"}}
+                    {{/if}}
+                  </dt>
                   <dd>{{this.amount}}&nbsp;&euro;</dd>
                 </dl>
 
@@ -184,7 +276,14 @@
             <!-- Partial Amount -->
             {{#not cart.items.length 1}}
             <dl class="transaction-summary-key-value">
-              <dt>Importo parziale</dt>
+              <dt>
+                {{!-- Importo parziale --}}
+                {{#if (localeIs "it")}}
+                {{__ "field.partialAmount"}}
+                {{else}}
+                {{__ "field.partialAmount" lng="it"}} · {{__ "field.partialAmount"}}
+                {{/if}}
+              </dt>
               <dd>{{cart.amountPartial}}&nbsp;&euro;</dd>
             </dl>
             {{/not}}
@@ -192,14 +291,32 @@
             <!-- Commissione -->
             {{#if transaction.psp.fee.amount}}
             <dl class="transaction-summary-key-value">
-              <dt>Commissione (applicata da {{transaction.psp.name}})</dt>
+              <dt>
+                {{!-- Importo --}}
+                {{#if (localeIs "it")}}
+                {{__ "field.fee" PSPShortName=transaction.psp.name}}
+                {{else}}
+                {{__ "field.fee" lng="it" PSPShortName=transaction.psp.name}}
+                <br />
+                {{__ "field.fee" PSPShortName=transaction.psp.name}}
+                {{/if}}
+              </dt>
               <dd>{{transaction.psp.fee.amount}}&nbsp;&euro;</dd>
             </dl>
             {{/if}}
 
             <!-- Totale -->
             <dl class="transaction-summary-key-value total-amount">
-              <dt>Totale</dt>
+              <dt>
+                {{!-- Totale --}}
+                {{#if (localeIs "it")}}
+                {{__ "field.toBePaid"}}
+                {{else}}
+                {{__ "field.toBePaid" lng="it"}}
+                <br />
+                {{__ "field.toBePaid"}}
+                {{/if}}
+              </dt>
               <dd>{{transaction.amount}}&nbsp;&euro;</dd>
             </dl>
 
@@ -221,15 +338,27 @@
         <div class="footer-disclaimer">
           <p>
             <strong>
-              Questa ricevuta attesta il pagamento eseguito. Rivolgiti all’Ente Creditore se hai bisogno della quietanza
-              liberatoria.
+              {{#if (localeIs "it")}}
+              {{__ "disclaimer.compliance"}}
+              {{else}}
+              {{__ "disclaimer.compliance" lng="it"}}
+              <br />
+              {{__ "disclaimer.compliance"}}
+              {{/if}}
+
             </strong>
           </p>
 
           {{#unless transaction.psp.fee.amount}}
           <p>
-            Il totale non include i costi di commissione: puoi trovarli nel documento che hai ricevuto da
-            {{transaction.psp.name}}.
+            {{!-- Riferimento a costi di commissione non presenti --}}
+            {{#if (localeIs "it")}}
+            {{__ "disclaimer.unknownFees" PSPShortName=transaction.psp.name}}
+            {{else}}
+            {{__ "disclaimer.unknownFees" lng="it" PSPShortName=transaction.psp.name}}
+            <br />
+            {{__ "disclaimer.unknownFees" PSPShortName=transaction.psp.name}}
+            {{/if}}
           </p>
           {{/unless}}
 
@@ -238,7 +367,16 @@
 
         <div class="company-info">
           <div class="pagopa-company-address">
-            <p><strong>Ricevuta trasmessa da PagoPA S.p.A.</strong></p>
+            <p>
+              <strong>
+                {{#if (localeIs "it")}}
+                {{__ "footer.handledByPagopa"}}
+                {{else}}
+                {{__ "footer.handledByPagopa" lng="it"}}<br />
+                {{__ "footer.handledByPagopa"}}
+                {{/if}}
+              </strong>
+            </p>
             <p>
               Piazza Colonna, 370<br />
               00187 Roma (RM)
@@ -248,7 +386,17 @@
           <!-- Informazioni sul PSP -->
           {{#if transaction.psp}}
           <div class="psp-company-address">
-            <p><strong>Pagamento gestito da {{transaction.psp.companyName}}</strong></p>
+            <p>
+              <strong>
+                {{#if (localeIs "it")}}
+                {{__ "footer.paymentManagedByPsp" PSPLegalName=transaction.psp.companyName}}
+                {{else}}
+                {{__ "footer.paymentManagedByPsp" lng="it" PSPLegalName=transaction.psp.companyName }}<br />
+                {{__ "footer.paymentManagedByPsp" PSPLegalName=transaction.psp.companyName }}
+                {{/if}}
+                {{!-- Pagamento gestito da {{transaction.psp.companyName}} --}}
+              </strong>
+            </p>
             <p>
               {{transaction.psp.address}}, {{transaction.psp.buildingNumber}}<br />
               {{transaction.psp.postalCode}} {{transaction.psp.city}} ({{transaction.psp.province}})
@@ -258,8 +406,18 @@
 
         </div>
 
-        <p>Serve aiuto? Visita <strong><u>pagopa.gov.it/assistenza</u></strong> · ID ricevuta:
+        <p>
+          {{#if (localeIs "it")}}
+          {{__ "footer.needHelp"}} {{__ "footer.browse"}} <strong><u>pagopa.gov.it/assistenza</u></strong> ·
+          {{__ "footer.paymentId"}}: <strong class="transaction-id">{{serviceCustomerId}}</strong>
+          {{else}}
+          {{__ "footer.needHelp" lng="it"}} {{__ "footer.browse" lng="it"}}
+          <strong><u>pagopa.gov.it/assistenza</u></strong> · {{__ "footer.paymentId" lng="it"}}:
           <strong class="transaction-id">{{serviceCustomerId}}</strong>
+          <br />
+          {{__ "footer.needHelp"}} {{__ "footer.browse"}} <strong><u>pagopa.gov.it/assistenza</u></strong> ·
+          {{__ "footer.paymentId"}}: <strong class="transaction-id">{{serviceCustomerId}}</strong>
+          {{/if}}
         </p>
 
       </footer>
