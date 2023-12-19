@@ -330,6 +330,7 @@ hr {
   font-weight: 500;
   font-size: var(--title-fsize);
   font-family: var(--font-monospaced);
+  text-transform: uppercase;
 }
 
 .entityName+.entityCode {
