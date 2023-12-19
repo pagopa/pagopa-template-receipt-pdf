@@ -29,7 +29,7 @@
   "user": {
     "data": {
       "fullName": "MARZIA ROCCARASO",
-      "taxCode": "RCCMRZ88A52C409A"
+      "taxCode": "rccmrz88A52C409A"
     },
     "email": "nome.cognome@pagopa.it"
   },
@@ -42,7 +42,7 @@
         },
         "debtor": {
           "fullName": "Giuseppe Bianchi",
-          "taxCode": "BNCGSP70A12F205X"
+          "taxCode": "bncGSP70A12F205X"
         },
         "payee": {
           "name": "Comune di Controguerra",
