@@ -9,7 +9,6 @@ This repo contains the pdf receipt templates used by pagoPA
   - [Compatibility](#compatibility)
   - [Related mail templates](#related-mail-templates)
 
-
 ## Dependecies
 
 - Node JS (👀 `.node-version` file), _optional_ see [nvm](https://github.com/nvm-sh/nvm)
@@ -25,18 +24,17 @@ To edit them, you can choose among these following options:
 - [Local installation](https://mjml.io/download)
 - [Visual Studio Code plugin](https://marketplace.visualstudio.com/items?itemName=mjmlio.vscode-mjml)
 
-> To generate the HTML output you need to install dependecies typing 
+> To generate the HTML output you need to install dependecies typing
 
+## How to install and run pdf generator
 
-## How to install and run pdf generator  
-
-Under `receipt/success/pdf` folder, on terminal typing : 
+Under `receipt/success/pdf` folder, on terminal typing :
 
 ```
 yarn install
 ```
 
-if all right you'll see something like that 
+if all right you'll see something like that
 
 ```sh
 success Saved lockfile.
@@ -46,24 +44,21 @@ success Saved lockfile.
 then typing :
 
 ```sh
-yarn generate-complete
-```
-or
-```sh
-yarn generate-partial
+yarn generate
 ```
 
-if all right you'll see something like that 
+if all right you'll see something like that
+
 ```sh
 Wrote /pagopa-template-receipt-pdf/receipt/success/pdf/template.html from /pagopa-template-receipt-pdf/receipt/success/pdf/template.hbs
 ✨  Done in 5.62s.
 ```
 
-and now, after typing  `ls -lrt` command u'll see a PDF file naming  `pagopa-receipt-<UUID>.pdf`
+and now, after typing `ls -lrt` command u'll see a PDF file naming `pagopa-receipt-<UUID>.pdf`
 
 ```
-```
 
+```
 
 ## Compatibility
 
@@ -89,5 +84,3 @@ Templates are compatible with the following clients:
 - [Area Riservata (former SelfCare)](https://github.com/pagopa/selfcare-email-templates)
 - [Piattaforma Notifiche](https://github.com/pagopa/pn-email-templates)
 - [Ecommerce Notifications Service](https://github.com/pagopa/pagopa-notifications-service) ([pagoPA doc](https://pagopa.atlassian.net/wiki/spaces/I/pages/529793813/pagoPA+Notifications+Service+Design+Review))
-
-
