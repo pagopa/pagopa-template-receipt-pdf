@@ -2544,7 +2544,7 @@
         "logo": "https://assets.cdn.io.italia.it/logos/abi/08140.png",
         "fiscalCode": "00135870228",
         "name": "Fpb Cassa di Fassa Primiero Belluno - BCC Societ\u00e0 Cooperativa",
-        "companyName": "Cassa Rurale Dolomiti Di Fassa Primiero E Belluno Bcc Societ\u00e0 Cooperativa",
+        "companyName": "Fpb Cassa di Fassa Primiero Belluno - BCC Societ\u00e0 Cooperativa",
         "address": "Piaz De Sotegrava",
         "buildingNumber": "1",
         "postalCode": "38035",
@@ -2555,7 +2555,7 @@
         "logo": "https://assets.cdn.io.italia.it/logos/abi/08140.png",
         "fiscalCode": "00135870228",
         "name": "Fpb Cassa di Fassa Primiero Belluno - BCC Societ\u00e0 Cooperativa",
-        "companyName": "Cassa Rurale Dolomiti Di Fassa Primiero E Belluno Bcc Societ\u00e0 Cooperativa",
+        "companyName": "Fpb Cassa di Fassa Primiero Belluno - BCC Societ\u00e0 Cooperativa",
         "address": "Piaz De Sotegrava",
         "buildingNumber": "1",
         "postalCode": "38035",
@@ -3533,8 +3533,8 @@
     "ABI08365": {
         "logo": "https://assets.cdn.io.italia.it/logos/abi/08365.png",
         "fiscalCode": "00945950780",
-        "name": "BCC dell'Alto Tirreno della Calabria Verbicaro",
-        "companyName": "Banca Di Credito Cooperativo Dell'Alto Tirreno Della Calabria Verbicaro (Provincia Di Cosenza) Societ\u00e0 Cooperativa",
+        "name": "BCC Calabria Nord",
+        "companyName": "Banca Di Credito Cooperativo Calabria Nord",
         "address": "Via Roma",
         "buildingNumber": "153-155",
         "postalCode": "87020",
@@ -4546,7 +4546,7 @@
         "logo": "https://assets.cdn.io.italia.it/logos/abi/08590.png",
         "fiscalCode": "01405390244",
         "name": "Banca del Veneto Centrale - Credito Cooperativo",
-        "companyName": "Centroveneto Bassano Banca Credito Cooperativo Societ\u00e0 Cooperativa",
+        "companyName": "Banca del Veneto Centrale - Credito Cooperativo",
         "address": "Via Ponte Di Costozza",
         "buildingNumber": "12",
         "postalCode": "36023",
@@ -4557,7 +4557,7 @@
         "logo": "https://assets.cdn.io.italia.it/logos/abi/08590.png",
         "fiscalCode": "01405390244",
         "name": "Banca del Veneto Centrale - Credito Cooperativo",
-        "companyName": "Centroveneto Bassano Banca Credito Cooperativo Societ\u00e0 Cooperativa",
+        "companyName": "Banca del Veneto Centrale - Credito Cooperativo",
         "address": "Via Ponte Di Costozza",
         "buildingNumber": "12",
         "postalCode": "36023",
@@ -6112,8 +6112,8 @@
         "address": "Via Giovanni Battista Morgagni",
         "buildingNumber": "13",
         "postalCode": "00161",
-        "city": "Padova",
-        "province": "PD"
+        "city": "Roma",
+        "province": "RM"
     },
     "ABI36042": {
         "logo": "https://assets.cdn.io.italia.it/logos/abi/36042.png",
@@ -6123,8 +6123,8 @@
         "address": "Via Giovanni Battista Morgagni",
         "buildingNumber": "13",
         "postalCode": "00161",
-        "city": "Padova",
-        "province": "PD"
+        "city": "Roma",
+        "province": "RM"
     },
     "SEPFIT31XXX": {
         "logo": "https://assets.cdn.io.italia.it/logos/abi/36063.png",
@@ -6807,5 +6807,16 @@
         "postalCode": "33100",
         "city": "Udine",
         "province": "UD"
+    },
+    "WOLLNLB1": {
+        "logo": "https://assets.cdn.io.italia.it/logos/abi/WOLLNLB1.png",
+        "fiscalCode": "NL853935051B01",
+        "name": "Worldpay B.V.",
+        "companyName": "Worldpay B.V.",
+        "address": "De Entree",
+        "buildingNumber": "248",
+        "postalCode": "1101EE",
+        "city": "Amsterdam",
+        "province": "EE"
     }
 }
