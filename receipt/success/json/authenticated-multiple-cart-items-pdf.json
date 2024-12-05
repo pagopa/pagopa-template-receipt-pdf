@@ -60,7 +60,39 @@
           "name": "Comune di Controguerra",
           "taxCode": 82001760675
         },
-        "subject": "Multa per eccesso di velocità",
+        "subject": "Multa per eccesso di velocità 1",
+        "amount": "72,00"
+      },
+      {
+        "refNumber": {
+          "type": "IUV",
+          "value": "123456789012345678"
+        },
+        "debtor": {
+          "fullName": "Giuseppe Bianchi",
+          "taxCode": "BNCGSP70A12F205X"
+        },
+        "payee": {
+          "name": "Comune di Controguerra",
+          "taxCode": 82001760675
+        },
+        "subject": "Multa per eccesso di velocità 2",
+        "amount": "72,00"
+      },
+      {
+        "refNumber": {
+          "type": "IUV",
+          "value": "123456789012345678"
+        },
+        "debtor": {
+          "fullName": "Giuseppe Bianchi",
+          "taxCode": "BNCGSP70A12F205X"
+        },
+        "payee": {
+          "name": "Comune di Controguerra",
+          "taxCode": 82001760675
+        },
+        "subject": "Multa per eccesso di velocità 3",
         "amount": "72,00"
       }
     ],

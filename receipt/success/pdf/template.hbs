@@ -107,7 +107,7 @@
 
           <section class="transaction-detail">
 
-            {{#each cart.items}}
+            {{#each (slice cart.items 0 3)}}
 
             <section class="transaction-detail-group">
 
@@ -274,6 +274,164 @@
     </div>
 
   </div>
+
+  {{#if (gt cart.items.length 3)}}
+
+  <div class="page">
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        <section class="pagopa-header">
+          <img class="logo" src="assets/logo-pagoPa.svg" />
+          <h1 class="title">Ricevuta di pagamento</h1>
+        </section>
+        {{#if transaction.processedByPagoPA}}
+        {{#if transaction.psp.logo}}
+        <dl class="psp-header">
+          <dt>Per conto di</dt>
+          <dd class="psp-logo">
+            <img alt={{transaction.psp.name}} src={{transaction.psp.logo}} />
+          </dd>
+        </dl>
+        {{/if}}
+        {{/if}}
+      </header>
+
+      {{!-- MAIN CONTENT -- START --}}
+
+      <main>
+        <div class="content-grid">
+
+          <section class="transaction-detail">
+
+            {{#each (slice cart.items 3)}}
+
+            <section class="transaction-detail-group">
+
+              {{#if this.subject}}
+              <div class="transaction-detail-paymentSubject">
+                <!-- Oggetto del pagamento (Carrello singolo) -->
+                {{#not this.length 1}}
+                <h2 class="paymentSubject">{{{this.subject}}}</h2>
+                {{/not}}
+              </div>
+              {{/if}}
+
+              <!-- Debitore (+ codice fiscale) -->
+              {{#with this.debtor}}
+              <dl class="data-key-value small transaction-detail-debtor">
+                <dt>Debitore</dt>
+                <dd class="entityGroup">
+                  {{#if fullName}}
+                  <span class="entityName forcedCapitalCase">{{lowercase fullName}}</span>
+                  {{/if}}
+                  {{#if taxCode}}
+                  <span class="entityCode">{{taxCode}}</span>
+                  {{/if}}
+                </dd>
+              </dl>
+              {{/with}}
+
+              <!-- Ente creditore (+ codice fiscale) -->
+              <dl class="data-key-value small transaction-detail-creditor">
+                <dt>Ente Creditore</dt>
+                <dd class="entityGroup">
+                  <span class="entityName">{{this.payee.name}}</span>
+                  <span class="entityCode">{{this.payee.taxCode}}</span>
+                </dd>
+              </dl>
+
+              <section class="transaction-detail-paymentData">
+
+                <!-- IUV -->
+                {{#eq this.refNumber.type "IUV"}}
+                <dl class="data-key-value right-align">
+                  <dt>IUV</dt>
+                  <dd class="entityCode">{{this.refNumber.value}}</dd>
+                </dl>
+                {{/eq}}
+
+                <!-- Codice Avviso -->
+                {{#eq this.refNumber.type "codiceAvviso"}}
+                <dl class="data-key-value right-align">
+                  <dt>Codice avviso</dt>
+                  <dd class="entityCode">{{splitAndSpace this.refNumber.value}}</dd>
+                </dl>
+                {{/eq}}
+
+                <!-- Importo -->
+                <dl class="data-key-value small right-align amount-value">
+                  <dt>Importo</dt>
+                  <dd>{{this.amount}}&nbsp;&euro;</dd>
+                </dl>
+
+              </section>
+
+            </section>
+
+            <hr class="transaction-detail-divider" />
+
+            {{/each}}
+
+          </section>
+        </div>
+      </main>
+
+      {{!-- MAIN CONTENT -- END --}}
+
+
+      <footer>
+
+        <div class="footer-disclaimer">
+          <p>
+            <strong>
+              Questa ricevuta attesta il pagamento eseguito. Rivolgiti all’Ente Creditore se hai bisogno della quietanza
+              liberatoria.
+            </strong>
+          </p>
+
+          {{#unless transaction.psp.fee.amount}}
+          <p>
+            Il totale non include i costi di commissione: puoi trovarli nel documento che hai ricevuto da
+            {{transaction.psp.name}}.
+          </p>
+          {{/unless}}
+
+        </div>
+
+
+        <div class="company-info">
+          <div class="pagopa-company-address">
+            <p><strong>Ricevuta trasmessa da PagoPA S.p.A.</strong></p>
+            <p>
+              Piazza Colonna, 370<br />
+              00187 Roma (RM)
+            </p>
+          </div>
+
+          <!-- Informazioni sul PSP -->
+          {{#if transaction.psp}}
+          <div class="psp-company-address">
+            <p><strong>Pagamento gestito da {{transaction.psp.companyName}}</strong></p>
+            <p>
+              {{transaction.psp.address}}, {{transaction.psp.buildingNumber}}<br />
+              {{transaction.psp.postalCode}} {{transaction.psp.city}} ({{transaction.psp.province}})
+            </p>
+          </div>
+          {{/if}}
+
+        </div>
+
+        <p>Serve aiuto? Visita <strong><u>pagopa.gov.it/assistenza</u></strong> · ID ricevuta:
+          <strong class="transaction-id">{{serviceCustomerId}}</strong>
+        </p>
+
+      </footer>
+
+    </div>
+  </div>
+
+  {{/if}}
 
 </body>
 

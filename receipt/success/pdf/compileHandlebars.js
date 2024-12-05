@@ -6,18 +6,22 @@ const eq = require("../helpers/eq.js");
 const not = require("../helpers/not.js");
 const splitAndSpace = require("../helpers/splitAndSpace");
 const lowercase = require("../helpers/lowercase.js");
+const slice = require("../helpers/slice.js");
+const gt = require("../helpers/gt.js");
 
 // Register the helpers
 Handlebars.registerHelper("eq", eq);
 Handlebars.registerHelper("not", not);
 Handlebars.registerHelper("splitAndSpace", splitAndSpace);
 Handlebars.registerHelper("lowercase", lowercase);
+Handlebars.registerHelper("slice", slice);
+Handlebars.registerHelper("gt", gt);
 
 const templateFile = fs.readFileSync("template.hbs", "utf8");
 const template = Handlebars.compile(templateFile);
 
 // Load the data for the template
-const data = require("../json/authenticated-pdf.json");
+const data = require("../json/authenticated-multiple-cart-items-pdf.json");
 
 // Generate the HTML
 const html = template(data);
