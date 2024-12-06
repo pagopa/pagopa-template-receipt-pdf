@@ -12,22 +12,8 @@
   <div class="page">
 
     <div class="page-wrapper">
-      <header class="page-header">
-        <section class="pagopa-header">
-          <img class="logo" src="assets/logo-pagoPa.svg" />
-          <h1 class="title">Ricevuta di pagamento</h1>
-        </section>
-        {{#if transaction.processedByPagoPA}}
-        {{#if transaction.psp.logo}}
-        <dl class="psp-header">
-          <dt>Per conto di</dt>
-          <dd class="psp-logo">
-            <img alt={{transaction.psp.name}} src={{transaction.psp.logo}} />
-          </dd>
-        </dl>
-        {{/if}}
-        {{/if}}
-      </header>
+      {{!-- Header --}}
+      {{> header}}
 
       <main>
         <div class="content-grid">
@@ -224,53 +210,9 @@
         </div>
       </main>
 
-      <footer>
+      {{!-- Footer --}}
+      {{> footer}}
 
-        <div class="footer-disclaimer">
-          <p>
-            <strong>
-              Questa ricevuta attesta il pagamento eseguito. Rivolgiti all’Ente Creditore se hai bisogno della quietanza
-              liberatoria.
-            </strong>
-          </p>
-
-          {{#unless transaction.psp.fee.amount}}
-          <p>
-            Il totale non include i costi di commissione: puoi trovarli nel documento che hai ricevuto da
-            {{transaction.psp.name}}.
-          </p>
-          {{/unless}}
-
-        </div>
-
-
-        <div class="company-info">
-          <div class="pagopa-company-address">
-            <p><strong>Ricevuta trasmessa da PagoPA S.p.A.</strong></p>
-            <p>
-              Piazza Colonna, 370<br />
-              00187 Roma (RM)
-            </p>
-          </div>
-
-          <!-- Informazioni sul PSP -->
-          {{#if transaction.psp}}
-          <div class="psp-company-address">
-            <p><strong>Pagamento gestito da {{transaction.psp.companyName}}</strong></p>
-            <p>
-              {{transaction.psp.address}}, {{transaction.psp.buildingNumber}}<br />
-              {{transaction.psp.postalCode}} {{transaction.psp.city}} ({{transaction.psp.province}})
-            </p>
-          </div>
-          {{/if}}
-
-        </div>
-
-        <p>Serve aiuto? Visita <strong><u>pagopa.gov.it/assistenza</u></strong> · ID ricevuta:
-          <strong class="transaction-id">{{serviceCustomerId}}</strong>
-        </p>
-
-      </footer>
     </div>
 
   </div>
@@ -280,22 +222,8 @@
   <div class="page">
 
     <div class="page-wrapper">
-      <header class="page-header">
-        <section class="pagopa-header">
-          <img class="logo" src="assets/logo-pagoPa.svg" />
-          <h1 class="title">Ricevuta di pagamento</h1>
-        </section>
-        {{#if transaction.processedByPagoPA}}
-        {{#if transaction.psp.logo}}
-        <dl class="psp-header">
-          <dt>Per conto di</dt>
-          <dd class="psp-logo">
-            <img alt={{transaction.psp.name}} src={{transaction.psp.logo}} />
-          </dd>
-        </dl>
-        {{/if}}
-        {{/if}}
-      </header>
+      {{!-- Header --}}
+      {{> header}}
 
       {{!-- MAIN CONTENT -- START --}}
 
@@ -379,54 +307,8 @@
 
       {{!-- MAIN CONTENT -- END --}}
 
-
-      <footer>
-
-        <div class="footer-disclaimer">
-          <p>
-            <strong>
-              Questa ricevuta attesta il pagamento eseguito. Rivolgiti all’Ente Creditore se hai bisogno della quietanza
-              liberatoria.
-            </strong>
-          </p>
-
-          {{#unless transaction.psp.fee.amount}}
-          <p>
-            Il totale non include i costi di commissione: puoi trovarli nel documento che hai ricevuto da
-            {{transaction.psp.name}}.
-          </p>
-          {{/unless}}
-
-        </div>
-
-
-        <div class="company-info">
-          <div class="pagopa-company-address">
-            <p><strong>Ricevuta trasmessa da PagoPA S.p.A.</strong></p>
-            <p>
-              Piazza Colonna, 370<br />
-              00187 Roma (RM)
-            </p>
-          </div>
-
-          <!-- Informazioni sul PSP -->
-          {{#if transaction.psp}}
-          <div class="psp-company-address">
-            <p><strong>Pagamento gestito da {{transaction.psp.companyName}}</strong></p>
-            <p>
-              {{transaction.psp.address}}, {{transaction.psp.buildingNumber}}<br />
-              {{transaction.psp.postalCode}} {{transaction.psp.city}} ({{transaction.psp.province}})
-            </p>
-          </div>
-          {{/if}}
-
-        </div>
-
-        <p>Serve aiuto? Visita <strong><u>pagopa.gov.it/assistenza</u></strong> · ID ricevuta:
-          <strong class="transaction-id">{{serviceCustomerId}}</strong>
-        </p>
-
-      </footer>
+      {{!-- Footer --}}
+      {{> footer}}
 
     </div>
   </div>
