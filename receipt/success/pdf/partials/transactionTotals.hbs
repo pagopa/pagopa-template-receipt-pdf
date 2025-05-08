@@ -1,0 +1,41 @@
+{{#if cart.hideFeesAndTotals}}
+
+<p class="disclaimer muted">
+  Questo avviso è stato pagato insieme ad altri in un'unica transazione. Per informazioni sui costi di
+  commissione, consulta il documento ricevuto in fase di pagamento.
+</p>
+
+{{else}}
+<section class="transaction-summary">
+  <!-- Partial Amount -->
+  {{#not cart.items.length 1}}
+  <dl class="transaction-summary-key-value">
+    <dt>Importo parziale</dt>
+    <dd>{{cart.amountPartial}}&nbsp;&euro;</dd>
+  </dl>
+  {{/not}}
+
+  <!-- Commissione -->
+  {{#if transaction.psp.fee.amount}}
+  <dl class="transaction-summary-key-value">
+    <dt>Commissione (applicata da {{transaction.psp.name}})</dt>
+    <dd>{{transaction.psp.fee.amount}}&nbsp;&euro;</dd>
+  </dl>
+  {{/if}}
+
+  <!-- Totale -->
+  <dl class="transaction-summary-key-value total-amount">
+    <dt>Totale</dt>
+    <dd>{{transaction.amount}}&nbsp;&euro;</dd>
+  </dl>
+
+  <!-- Bank Charges -->
+  {{#if transaction.paymentMethod.extraFee}}
+  {{!-- <p>Il totale non include eventuali costi di invio bonifico, se applicati dal gestore della transazione
+    (PSP).
+    Per maggiori informazioni, rivolgiti alla tua banca.
+  </p> --}}
+  {{/if}}
+
+</section>
+{{/if}}

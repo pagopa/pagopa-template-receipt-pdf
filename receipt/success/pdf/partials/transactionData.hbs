@@ -1,0 +1,72 @@
+<section class="transaction-data">
+
+  <section class="transaction-data-group">
+
+    {{#with user.data}}
+    <dl class="data-key-value">
+      <dt>Eseguito da</dt>
+      <dd class="entityGroup">
+        {{#if fullName}}
+        <span class="entityName forcedCapitalCase">{{lowercase fullName}}</span>
+        {{/if}}
+        <span class="entityCode">{{taxCode}}</span>
+      </dd>
+    </dl>
+    {{/with}}
+
+    {{#if transaction.rrn}}
+    <dl class="data-key-value">
+      <dt>ID transazione (RRN)</dt>
+      <dd class="entityCode">{{transaction.rrn}}</dd>
+    </dl>
+    {{/if}}
+
+    {{#if transaction.authCode}}
+    <dl class="data-key-value">
+      <dt>Codice autorizzativo</dt>
+      <dd class="entityCode">{{transaction.authCode}}</dd>
+    </dl>
+    {{/if}}
+
+  </section>
+
+  <section class="transaction-data-group">
+
+    {{#unless transaction.requestedByDebtor}}
+
+    {{#if transaction.paymentMethod.name}}
+    <dl class="data-key-value">
+      <dt>Metodo di pagamento</dt>
+      <dd class="data-value-big">
+        <div class="payment-method-group forcedCapitalCase">
+          <img class="payment-method-logo" src={{transaction.paymentMethod.logo}} />
+          {{lowercase transaction.paymentMethod.name}}
+        </div>
+      </dd>
+    </dl>
+    {{/if}}
+
+    {{#if transaction.paymentMethod.accountHolder}}
+    <dl class="data-key-value">
+      <dt>Intestato a</dt>
+      <dd class="data-value-big forcedCapitalCase">{{lowercase transaction.paymentMethod.accountHolder}}</dd>
+    </dl>
+    {{/if}}
+
+    {{/unless}}
+
+    {{#if transaction.psp}}
+    <dl class="data-key-value">
+      <dt>Gestore della transazione (PSP)</dt>
+      <dd class="data-value-big">{{transaction.psp.name}}</dd>
+    </dl>
+    {{/if}}
+
+    <dl class="data-key-value">
+      <dt>Data e ora</dt>
+      <dd class="data-value-big">{{transaction.timestamp}}</dd>
+    </dl>
+
+  </section>
+
+</section>

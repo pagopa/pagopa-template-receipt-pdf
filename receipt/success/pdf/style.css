@@ -9,7 +9,7 @@
   /* Divider */
   --divider-color: #E3E7EB;
   --divider-width: 0.5mm;
-  --divider-margin: 7mm;
+  --divider-margin: 6mm;
   /* Font sizes */
   --caption-fsize: 9pt;
   --title-fsize: 10pt;
@@ -357,6 +357,15 @@ hr {
   font-weight: 700;
   font-size: var(--entity-fsize);
   color: var(--primary-color);
+}
+
+.disclaimer {
+  font-size: var(--caption-fsize);
+  margin: 0;
+
+  &.muted {
+    color: var(--secondary-color);
+  }
 }
 
 .stack>*+* {
