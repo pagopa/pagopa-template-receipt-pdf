@@ -3,13 +3,13 @@
 This repo contains the pdf receipt templates used by pagoPA
 
 - [🧾 pagopa-template-receipt-pdf](#-pagopa-template-receipt-pdf)
-  - [Dependecies](#dependecies)
+  - [Dependencies](#dependencies)
   - [How to apply changes](#how-to-apply-changes)
   - [How to install and run pdf generator](#how-to-install-and-run-pdf-generator)
   - [Compatibility](#compatibility)
   - [Related mail templates](#related-mail-templates)
 
-## Dependecies
+## Dependencies
 
 - Node JS (👀 `.node-version` file), _optional_ see [nvm](https://github.com/nvm-sh/nvm)
 - [yarn](https://yarnpkg.com/)
@@ -24,41 +24,24 @@ To edit them, you can choose among these following options:
 - [Local installation](https://mjml.io/download)
 - [Visual Studio Code plugin](https://marketplace.visualstudio.com/items?itemName=mjmlio.vscode-mjml)
 
-> To generate the HTML output you need to install dependecies typing
-
 ## How to install and run pdf generator
 
-Under `receipt/success/pdf` folder, on terminal typing :
+Under `receipt/success/pdf` folder, run on your terminal:
 
 ```
 yarn install
 ```
 
-if all right you'll see something like that
-
-```sh
-success Saved lockfile.
-✨  Done in 21.71s.
-```
-
-then typing :
+To generate the `PDF` file, just run:
 
 ```sh
 yarn generate
-```
-
-if all right you'll see something like that
-
-```sh
+[…]
 Wrote /pagopa-template-receipt-pdf/receipt/success/pdf/template.html from /pagopa-template-receipt-pdf/receipt/success/pdf/template.hbs
 ✨  Done in 5.62s.
 ```
 
-and now, after typing `ls -lrt` command u'll see a PDF file naming `pagopa-receipt-<UUID>.pdf`
-
-```
-
-```
+A PDF with the `pagopa-receipt-<UUID>.pdf` filename has been generated in the same folder.
 
 ## Compatibility
 
