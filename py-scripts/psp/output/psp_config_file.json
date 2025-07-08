@@ -6005,6 +6005,17 @@
         "city": "Milano",
         "province": "MI"
     },
+    "MOONITMMXXX": {
+        "logo": "https://assets.cdn.io.italia.it/logos/abi/32532.png",
+        "fiscalCode": "06529501006",
+        "name": "Mooney",
+        "companyName": "Mooney S.P.A.",
+        "address": "Via Privata Nino Bonnet",
+        "buildingNumber": "6",
+        "postalCode": "20154",
+        "city": "Milano",
+        "province": "MI"
+    },
     "ABI32532": {
         "logo": "https://assets.cdn.io.italia.it/logos/abi/32532.png",
         "fiscalCode": "06529501006",
