@@ -359,6 +359,15 @@ hr {
   color: var(--primary-color);
 }
 
+.disclaimer {
+  font-size: var(--caption-fsize);
+  margin: 0;
+
+  &.muted {
+    color: var(--secondary-color);
+  }
+}
+
 .stack>*+* {
   margin-top: 2mm;
 }
