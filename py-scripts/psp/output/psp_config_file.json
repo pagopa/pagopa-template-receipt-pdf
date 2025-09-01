@@ -1168,8 +1168,8 @@
     "BPBAIT3B": {
         "logo": "https://assets.cdn.io.italia.it/logos/abi/05424.png",
         "fiscalCode": "00254030729",
-        "name": "BdM Banca",
-        "companyName": "Banca Popolare Di Bari Societ\u00e0 Cooperativa Per Azioni In A.S.",
+        "name": "BDM Banca",
+        "companyName": "BDM BANCA S.P.A.",
         "address": "Corso Cavour",
         "buildingNumber": "19",
         "postalCode": "70121",
@@ -1179,8 +1179,8 @@
     "ABI05424": {
         "logo": "https://assets.cdn.io.italia.it/logos/abi/05424.png",
         "fiscalCode": "00254030729",
-        "name": "BdM Banca",
-        "companyName": "Banca Popolare Di Bari Societ\u00e0 Cooperativa Per Azioni In A.S.",
+        "name": "BDM Banca",
+        "companyName": "BDM BANCA S.P.A.",
         "address": "Corso Cavour",
         "buildingNumber": "19",
         "postalCode": "70121",
@@ -5995,6 +5995,17 @@
         "province": "RM"
     },
     "SIGPITM1XXX": {
+        "logo": "https://assets.cdn.io.italia.it/logos/abi/32532.png",
+        "fiscalCode": "06529501006",
+        "name": "Mooney",
+        "companyName": "Mooney S.P.A.",
+        "address": "Via Privata Nino Bonnet",
+        "buildingNumber": "6",
+        "postalCode": "20154",
+        "city": "Milano",
+        "province": "MI"
+    },
+    "MOONITMMXXX": {
         "logo": "https://assets.cdn.io.italia.it/logos/abi/32532.png",
         "fiscalCode": "06529501006",
         "name": "Mooney",
