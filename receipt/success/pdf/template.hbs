@@ -10,274 +10,71 @@
 
 <body>
   <div class="page">
-
     <div class="page-wrapper">
-      <header class="page-header">
-        <section class="pagopa-header">
-          <img class="logo" src="assets/logo-pagoPa.svg" />
-          <h1 class="title">Ricevuta di pagamento</h1>
-        </section>
-        {{#if transaction.processedByPagoPA}}
-        {{#if transaction.psp.logo}}
-        <dl class="psp-header">
-          <dt>Per conto di</dt>
-          <dd class="psp-logo">
-            <img alt={{transaction.psp.name}} src={{transaction.psp.logo}} />
-          </dd>
-        </dl>
-        {{/if}}
-        {{/if}}
-      </header>
+
+      {{!-- Header --}}
+      {{> header}}
 
       <main>
         <div class="content-grid">
 
-          <section class="transaction-data">
-
-            <section class="transaction-data-group">
-
-              {{#with user.data}}
-              <dl class="data-key-value">
-                <dt>Eseguito da</dt>
-                <dd class="entityGroup">
-                  {{#if fullName}}
-                  <span class="entityName forcedCapitalCase">{{lowercase fullName}}</span>
-                  {{/if}}
-                  <span class="entityCode">{{taxCode}}</span>
-                </dd>
-              </dl>
-              {{/with}}
-
-              {{#if transaction.rrn}}
-              <dl class="data-key-value">
-                <dt>ID transazione (RRN)</dt>
-                <dd class="entityCode">{{transaction.rrn}}</dd>
-              </dl>
-              {{/if}}
-
-              {{#if transaction.authCode}}
-              <dl class="data-key-value">
-                <dt>Codice autorizzativo</dt>
-                <dd class="entityCode">{{transaction.authCode}}</dd>
-              </dl>
-              {{/if}}
-
-            </section>
-
-            <section class="transaction-data-group">
-
-              {{#unless transaction.requestedByDebtor}}
-
-              {{#if transaction.paymentMethod.name}}
-              <dl class="data-key-value">
-                <dt>Metodo di pagamento</dt>
-                <dd class="data-value-big">
-                  <div class="payment-method-group forcedCapitalCase">
-                    <img class="payment-method-logo" src={{transaction.paymentMethod.logo}} />
-                    {{lowercase transaction.paymentMethod.name}}
-                  </div>
-                </dd>
-              </dl>
-              {{/if}}
-
-              {{#if transaction.paymentMethod.accountHolder}}
-              <dl class="data-key-value">
-                <dt>Intestato a</dt>
-                <dd class="data-value-big forcedCapitalCase">{{lowercase transaction.paymentMethod.accountHolder}}</dd>
-              </dl>
-              {{/if}}
-
-              {{/unless}}
-
-              {{#if transaction.psp}}
-              <dl class="data-key-value">
-                <dt>Gestore della transazione (PSP)</dt>
-                <dd class="data-value-big">{{transaction.psp.name}}</dd>
-              </dl>
-              {{/if}}
-
-              <dl class="data-key-value">
-                <dt>Data e ora</dt>
-                <dd class="data-value-big">{{transaction.timestamp}}</dd>
-              </dl>
-
-            </section>
-
-          </section>
+          {{!-- Transaction Data: summary about the PSP, payment methods, etc… --}}
+          {{> transactionData}}
 
           <section class="transaction-detail">
+            {{#each (slice cart.items 0 3)}}
 
-            {{#each cart.items}}
-
-            <section class="transaction-detail-group">
-
-              {{#if this.subject}}
-              <div class="transaction-detail-paymentSubject">
-                <!-- Oggetto del pagamento (Carrello singolo) -->
-                {{#not this.length 1}}
-                <h2 class="paymentSubject">{{{this.subject}}}</h2>
-                {{/not}}
-              </div>
-              {{/if}}
-
-              <!-- Debitore (+ codice fiscale) -->
-              {{#with this.debtor}}
-              <dl class="data-key-value small transaction-detail-debtor">
-                <dt>Debitore</dt>
-                <dd class="entityGroup">
-                  {{#if fullName}}
-                  <span class="entityName forcedCapitalCase">{{lowercase fullName}}</span>
-                  {{/if}}
-                  {{#if taxCode}}
-                  <span class="entityCode">{{taxCode}}</span>
-                  {{/if}}
-                </dd>
-              </dl>
-              {{/with}}
-
-              <!-- Ente creditore (+ codice fiscale) -->
-              <dl class="data-key-value small transaction-detail-creditor">
-                <dt>Ente Creditore</dt>
-                <dd class="entityGroup">
-                  <span class="entityName">{{this.payee.name}}</span>
-                  <span class="entityCode">{{this.payee.taxCode}}</span>
-                </dd>
-              </dl>
-
-              <section class="transaction-detail-paymentData">
-
-                <!-- IUV -->
-                {{#eq this.refNumber.type "IUV"}}
-                <dl class="data-key-value right-align">
-                  <dt>IUV</dt>
-                  <dd class="entityCode">{{this.refNumber.value}}</dd>
-                </dl>
-                {{/eq}}
-
-                <!-- Codice Avviso -->
-                {{#eq this.refNumber.type "codiceAvviso"}}
-                <dl class="data-key-value right-align">
-                  <dt>Codice avviso</dt>
-                  <dd class="entityCode">{{splitAndSpace this.refNumber.value}}</dd>
-                </dl>
-                {{/eq}}
-
-                <!-- Importo -->
-                <dl class="data-key-value small right-align amount-value">
-                  <dt>Importo</dt>
-                  <dd>{{this.amount}}&nbsp;&euro;</dd>
-                </dl>
-
-              </section>
-
-            </section>
-
-            <hr class="transaction-detail-divider" />
+            {{> singleCartItem}}
 
             {{/each}}
-
           </section>
 
-
-          {{#if cart.hideFeesAndTotals}}
-
-          <p class="disclaimer muted">
-            Questo avviso è stato pagato insieme ad altri in un'unica transazione. Per informazioni sui costi di
-            commissione, consulta il documento ricevuto in fase di pagamento.
-          </p>
-
-          {{else}}
-          <section class="transaction-summary">
-            <!-- Partial Amount -->
-            {{#not cart.items.length 1}}
-            <dl class="transaction-summary-key-value">
-              <dt>Importo parziale</dt>
-              <dd>{{cart.amountPartial}}&nbsp;&euro;</dd>
-            </dl>
-            {{/not}}
-
-            <!-- Commissione -->
-            {{#if transaction.psp.fee.amount}}
-            <dl class="transaction-summary-key-value">
-              <dt>Commissione (applicata da {{transaction.psp.name}})</dt>
-              <dd>{{transaction.psp.fee.amount}}&nbsp;&euro;</dd>
-            </dl>
-            {{/if}}
-
-            <!-- Totale -->
-            <dl class="transaction-summary-key-value total-amount">
-              <dt>Totale</dt>
-              <dd>{{transaction.amount}}&nbsp;&euro;</dd>
-            </dl>
-
-            <!-- Bank Charges -->
-            {{#if transaction.paymentMethod.extraFee}}
-            {{!-- <p>Il totale non include eventuali costi di invio bonifico, se applicati dal gestore della transazione
-              (PSP).
-              Per maggiori informazioni, rivolgiti alla tua banca.
-            </p> --}}
-            {{/if}}
-
-          </section>
+          {{#if (lte cart.items.length 3)}}
+          {{> transactionTotals}}
           {{/if}}
 
         </div>
       </main>
 
-      <footer>
+      {{!-- Footer --}}
+      {{> footer}}
 
-        <div class="footer-disclaimer">
-          <p>
-            <strong>
-              Questa ricevuta attesta il pagamento eseguito. Rivolgiti all’Ente Creditore se hai bisogno della quietanza
-              liberatoria.
-            </strong>
-          </p>
-
-          {{#unless transaction.psp.fee.amount}}
-          <p>
-            Il totale non include i costi di commissione: puoi trovarli nel documento che hai ricevuto da
-            {{transaction.psp.name}}.
-          </p>
-          {{/unless}}
-
-          <p class="disclaimer">
-            Se hai richiesto un finanziamento, verifica gli eventuali costi aggiuntivi previsti nel contratto da te sottoscritto con il PSP o dai suoi partner al momento del pagamento. 
-          </p>
-
-        </div>
-
-
-        <div class="company-info">
-          <div class="pagopa-company-address">
-            <p><strong>Ricevuta trasmessa da PagoPA S.p.A.</strong></p>
-            <p>
-              Piazza Colonna, 370<br />
-              00187 Roma (RM)
-            </p>
-          </div>
-
-          <!-- Informazioni sul PSP -->
-          {{#if transaction.psp}}
-          <div class="psp-company-address">
-            <p><strong>Pagamento gestito da {{transaction.psp.companyName}}</strong></p>
-            <p>
-              {{transaction.psp.address}}, {{transaction.psp.buildingNumber}}<br />
-              {{transaction.psp.postalCode}} {{transaction.psp.city}} ({{transaction.psp.province}})
-            </p>
-          </div>
-          {{/if}}
-
-        </div>
-
-        <p>Serve aiuto? Visita <strong><u>pagopa.gov.it/assistenza</u></strong> · ID ricevuta:
-          <strong class="transaction-id">{{serviceCustomerId}}</strong>
-        </p>
-
-      </footer>
     </div>
-
   </div>
+
+  {{#if (gt cart.items.length 3)}}
+
+  <div class="page">
+    <div class="page-wrapper">
+
+      {{!-- Header --}}
+      {{> header}}
+
+      {{!-- MAIN CONTENT -- START --}}
+      <main>
+        <div class="content-grid">
+
+          <section class="transaction-detail">
+            {{#each (slice cart.items 3)}}
+
+            {{> singleCartItem}}
+
+            {{/each}}
+          </section>
+
+          {{> transactionTotals}}
+
+        </div>
+      </main>
+      {{!-- MAIN CONTENT -- END --}}
+
+      {{!-- Footer --}}
+      {{> footer}}
+
+    </div>
+  </div>
+
+  {{/if}}
 
 </body>
 

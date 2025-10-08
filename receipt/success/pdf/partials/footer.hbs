@@ -1,0 +1,51 @@
+<footer>
+
+  <div class="footer-disclaimer">
+    <p>
+      <strong>
+        Questa ricevuta attesta il pagamento eseguito. Rivolgiti all’Ente Creditore se hai bisogno della quietanza
+        liberatoria.
+      </strong>
+    </p>
+
+    {{#unless transaction.psp.fee.amount}}
+    <p>
+      Il totale non include i costi di commissione: puoi trovarli nel documento che hai ricevuto da
+      {{transaction.psp.name}}.
+    </p>
+    {{/unless}}
+
+    <p class="disclaimer">
+      Se hai richiesto un finanziamento, verifica gli eventuali costi aggiuntivi
+      previsti nel contratto da te sottoscritto con il PSP o dai suoi partner al
+      momento del pagamento.
+    </p>
+  </div>
+
+  <div class="company-info">
+    <div class="pagopa-company-address">
+      <p><strong>Ricevuta trasmessa da PagoPA S.p.A.</strong></p>
+      <p>
+        Piazza Colonna, 370<br />
+        00187 Roma (RM)
+      </p>
+    </div>
+
+    <!-- Informazioni sul PSP -->
+    {{#if transaction.psp}}
+    <div class="psp-company-address">
+      <p><strong>Pagamento gestito da {{transaction.psp.companyName}}</strong></p>
+      <p>
+        {{transaction.psp.address}}, {{transaction.psp.buildingNumber}}<br />
+        {{transaction.psp.postalCode}} {{transaction.psp.city}} ({{transaction.psp.province}})
+      </p>
+    </div>
+    {{/if}}
+
+  </div>
+
+  <p>Serve aiuto? Visita <strong><u>pagopa.gov.it/assistenza</u></strong> · ID ricevuta:
+    <strong class="transaction-id">{{serviceCustomerId}}</strong>
+  </p>
+
+</footer>

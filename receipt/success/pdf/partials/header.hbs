@@ -1,0 +1,16 @@
+<header class="page-header">
+  <section class="pagopa-header">
+    <img class="logo" src="assets/logo-pagoPa.svg" />
+    <h1 class="title">Ricevuta di pagamento</h1>
+  </section>
+  {{#if transaction.processedByPagoPA}}
+  {{#if transaction.psp.logo}}
+  <dl class="psp-header">
+    <dt>Per conto di</dt>
+    <dd class="psp-logo">
+      <img alt={{transaction.psp.name}} src={{transaction.psp.logo}} />
+    </dd>
+  </dl>
+  {{/if}}
+  {{/if}}
+</header>
