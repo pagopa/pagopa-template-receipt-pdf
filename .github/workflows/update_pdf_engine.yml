@@ -1,4 +1,4 @@
-name: Update receipt-pdf-generator
+name: Update PDF Engine
 
 on:
   push:
@@ -12,7 +12,7 @@ on:
 
 jobs:
   update_pdf_engine_temaplate:
-    name: Update receipt-pdf-generator
+    name: Update pdf-engine
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
