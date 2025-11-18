@@ -67,3 +67,12 @@ Templates are compatible with the following clients:
 - [Area Riservata (former SelfCare)](https://github.com/pagopa/selfcare-email-templates)
 - [Piattaforma Notifiche](https://github.com/pagopa/pn-email-templates)
 - [Ecommerce Notifications Service](https://github.com/pagopa/pagopa-notifications-service) ([pagoPA doc](https://pagopa.atlassian.net/wiki/spaces/I/pages/529793813/pagoPA+Notifications+Service+Design+Review))
+
+
+# Github Actions
+
+## Update `receipt-pdf-generator`
+Questa GitHub Action automatizza la sincronizzazione di file specifici relativi alla generazione di ricevute PDF tra questo repository e il repository `pagopa/pagopa-pdf-engine`.
+
+
+L'Action è progettata per mantenere aggiornati i file di helper e i partials dei template PDF utilizzati per la generazione delle ricevute. Crea 2 Pull Request (PR) separate nel repository di destinazione.
