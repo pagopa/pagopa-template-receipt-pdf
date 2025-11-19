@@ -18,31 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
 
-      # prepare receipt-pdf-notifier
-      # create tmp folder
-      # copy all needed files
-      # jq '.[] | .markdown' debtor.json
-      # yq -yi '.a.b |= "frog"' values-dev-copy.yaml
-      - name: Extract subject and markdown from json debtor/payer files
-        shell: bash
-        id: extract_subject_markdown
-        run: |
-          cd io-message/templates
-          echo "debtor ..."
-          MARKDOWN_DEBTOR=`jq '.[] | .markdown' debtor.json`
-          replMARKDOWN_DEBTOR=$(sed -e 's/[&\\/]/\\&/g; s/$/\\/' -e '$s/\\$//' <<<"$MARKDOWN_DEBTOR")
-          SUBJECT_DEBTOR=`jq '.[] | .subject' debtor.json`
-          replSUBJECT_DEBTOR=$(sed -e 's/[&\\/]/\\&/g; s/$/\\/' -e '$s/\\$//' <<<"$SUBJECT_DEBTOR")
-          echo "payer ..."
-          MARKDOWN_PAYER=`jq '.[] | .markdown' payer.json`
-          replMARKDOWN_PAYER=$(sed -e 's/[&\\/]/\\&/g; s/$/\\/' -e '$s/\\$//' <<<"$MARKDOWN_PAYER")
-          SUBJECT_PAYER=`jq '.[] | .subject' payer.json`
-          replSUBJECT_PAYER=$(sed -e 's/[&\\/]/\\&/g; s/$/\\/' -e '$s/\\$//' <<<"$SUBJECT_PAYER")
-          sed -i -e "s/MARKDOWN_DEBTORplaceholder/$replMARKDOWN_DEBTOR/g" ./helm/values-dev.yaml
-          sed -i -e "s/SUBJECT_DEBTORplaceholder/$replSUBJECT_DEBTOR/g" ./helm/values-dev.yaml
-          sed -i -e "s/MARKDOWN_PAYERplaceholder/$replMARKDOWN_PAYER/g" ./helm/values-dev.yaml
-          sed -i -e "s/SUBJECT_PAYERplaceholder/$replSUBJECT_PAYER/g" ./helm/values-dev.yaml
-      # open a PR on notifier repo
+
       - name: Create pull request
         uses: jacopocarlini/action-pull-request-another-repo@main
         env:
@@ -50,7 +26,7 @@ jobs:
         with:
           source_folder: "io-message/templates/helm"
           destination_repo: "pagopa/pagopa-receipt-pdf-notifier"
-          destination_folder: "helm"
+          destination_folder: "helm/templates"
           destination_base_branch: "main"
           destination_head_branch: "pagopa-receipt-message-template-pdf-update"
           user_email: "github-bot@pagopa.it"
