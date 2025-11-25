@@ -1,0 +1,49 @@
+name: Update PDF Engine
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "receipt/success/helpers"
+      - "receipt/success/pdf/partials"
+
+  workflow_dispatch:
+
+jobs:
+  update_pdf_engine_temaplate:
+    name: Update pdf-engine
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
+
+
+      - name: Create pull request
+        uses: jacopocarlini/action-pull-request-another-repo@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.BOT_TOKEN_GITHUB }}
+        with:
+          source_folder: "receipt/success/helpers"
+          destination_repo: "pagopa/pagopa-pdf-engine"
+          destination_folder: "node/pdf-generate/helpers/commons"
+          destination_base_branch: "main"
+          destination_head_branch: "update-helpers"
+          user_email: "github-bot@pagopa.it"
+          user_name: "pagopa-github-bot"
+          allow_force_push: "true"
+
+      - name: Create pull request
+        uses: jacopocarlini/action-pull-request-another-repo@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.BOT_TOKEN_GITHUB }}
+        with:
+          source_folder: "receipt/success/pdf/partials"
+          destination_repo: "pagopa/pagopa-pdf-engine"
+          destination_folder: "node/pdf-generate/partials/receipts"
+          destination_base_branch: "main"
+          destination_head_branch: "update-partials"
+          user_email: "github-bot@pagopa.it"
+          user_name: "pagopa-github-bot"
+          allow_force_push: "true"
+

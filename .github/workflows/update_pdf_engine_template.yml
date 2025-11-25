@@ -20,8 +20,8 @@ jobs:
         uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
 
       # prepare receipt-pdf-generator for engine
-      # create tmp folder template
-      # copy all needed files
+      # create tmp folder template
+      # copy all needed files
       - name: Zip files in temp directory
         shell: bash
         id: zip_files
