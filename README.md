@@ -70,9 +70,33 @@ Templates are compatible with the following clients:
 
 
 # Github Actions
+Le Action generano automaticamente Pull Request nei repository di destinazione ogni volta che vengono rilevate modifiche nei file monitorati.
 
-## Update `receipt-pdf-generator`
+## Action `update_pdf_engine.yml`
 Questa GitHub Action automatizza la sincronizzazione di file specifici relativi alla generazione di ricevute PDF tra questo repository e il repository `pagopa/pagopa-pdf-engine`.
 
 
 L'Action è progettata per mantenere aggiornati i file di helper e i partials dei template PDF utilizzati per la generazione delle ricevute. Crea 2 Pull Request (PR) separate nel repository di destinazione.
+
+## Action `update_pdf_engine_template.yml`
+Questa GitHub Action automatizza la sincronizzazione di file relativi alla generazione delle ricevute PDF tra questo repository e i repository:
+
+`pagopa/pagopa-receipt-pdf-generator`
+
+`pagopa/pagopa-receipt-pdf-helpdesk`
+
+L’obiettivo è mantenere allineati i template, gli assets e i file di configurazione necessari per la generazione delle ricevute PDF.
+
+## Action `update_psp_info_file.yml`
+Questa Action aggiorna automaticamente il file di configurazione PSP (psp_config_file.json) nel repository `pagopa/pagopa-receipt-generator`.
+
+Si attiva quando viene modificato:
+
+`py-scripts/psp/output/psp_config_file.json`
+
+## Action `update_receipt_notifier_markdown.yml`
+Questa Action aggiorna automaticamente i template IO Message utilizzati dal `pagopa-receipt-notifier`, quando vengono modificati:
+
+`io-message/templates/debtor.json`
+
+`io-message/templates/payer.json`
