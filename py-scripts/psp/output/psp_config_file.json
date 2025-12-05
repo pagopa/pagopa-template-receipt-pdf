@@ -6829,5 +6829,27 @@
         "postalCode": "1101EE",
         "city": "Amsterdam",
         "province": "EE"
+    },
+    "ABI08540": {
+        "logo": "https://assets.cdn.io.italia.it/logos/abi/08540.png",
+        "fiscalCode": "91007200404",
+        "name": "Banca di San Marino S.P.A",
+        "companyName": "Banca di San Marino S.P.A",
+        "address": "Strada della Croce",
+        "buildingNumber": "39",
+        "postalCode": "47896",
+        "city": "Faetano",
+        "province": "RSM"
+    },
+    "MAOISMSMXXX": {
+        "logo": "https://assets.cdn.io.italia.it/logos/abi/08540.png",
+        "fiscalCode": "91007200404",
+        "name": "Banca di San Marino S.P.A",
+        "companyName": "Banca di San Marino S.P.A",
+        "address": "Strada della Croce",
+        "buildingNumber": "39",
+        "postalCode": "47896",
+        "city": "Faetano",
+        "province": "RSM"
     }
 }
