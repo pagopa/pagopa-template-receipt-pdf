@@ -41,16 +41,3 @@ jobs:
           user_email: "github-bot@pagopa.it"
           user_name: "pagopa-github-bot"
           allow_force_push: "true"
-      - name: Create pull request to helpdesk
-        uses: jacopocarlini/action-pull-request-another-repo@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.BOT_TOKEN_GITHUB }}
-        with:
-          source_folder: "py-scripts/psp/output/tmp"
-          destination_repo: "pagopa/pagopa-receipt-pdf-helpdesk"
-          destination_folder: "src/main/resources"
-          destination_base_branch: "main"
-          destination_head_branch: "pagopa-psp-info-configuration"
-          user_email: "github-bot@pagopa.it"
-          user_name: "pagopa-github-bot"
-          allow_force_push: "true"

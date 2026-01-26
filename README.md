@@ -79,11 +79,9 @@ Questa GitHub Action automatizza la sincronizzazione di file specifici relativi 
 L'Action è progettata per mantenere aggiornati i file di helper e i partials dei template PDF utilizzati per la generazione delle ricevute. Crea 2 Pull Request (PR) separate nel repository di destinazione.
 
 ## Action `update_pdf_engine_template.yml`
-Questa GitHub Action automatizza la sincronizzazione di file relativi alla generazione delle ricevute PDF tra questo repository e i repository:
+Questa GitHub Action automatizza la sincronizzazione di file relativi alla generazione delle ricevute PDF tra questo repository e il repository:
 
 `pagopa/pagopa-receipt-pdf-generator`
-
-`pagopa/pagopa-receipt-pdf-helpdesk`
 
 L’obiettivo è mantenere allineati i template, gli assets e i file di configurazione necessari per la generazione delle ricevute PDF.
 
