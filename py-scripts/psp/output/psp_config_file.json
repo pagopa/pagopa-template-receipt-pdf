@@ -6851,5 +6851,49 @@
         "postalCode": "47896",
         "city": "Faetano",
         "province": "RSM"
+    },
+    "ABI36928": {
+        "logo": "https://assets.cdn.io.italia.it/logos/abi/36928.png",
+        "fiscalCode": "12511320967",
+        "name": "TPPay S.r.l.",
+        "companyName": "TPPay S.r.l.",
+        "address": "Via Serviliano Lattuada",
+        "buildingNumber": "25",
+        "postalCode": "20135",
+        "city": "Milano",
+        "province": "MI"
+    },
+    "TPPAITM2": {
+        "logo": "https://assets.cdn.io.italia.it/logos/abi/36928.png",
+        "fiscalCode": "12511320967",
+        "name": "TPPay S.r.l.",
+        "companyName": "TPPay S.r.l.",
+        "address": "Via Serviliano Lattuada",
+        "buildingNumber": "25",
+        "postalCode": "20135",
+        "city": "Milano",
+        "province": "MI"
+    },
+    "ABI03034": {
+        "logo": "https://assets.cdn.io.italia.it/logos/abi/03034.png",
+        "fiscalCode": "91010030400",
+        "name": "Banca Agricola Commerciale S.p.A.",
+        "companyName": "Banca Agricola Commerciale S.p.A.",
+        "address": "Via Tre Settembre",
+        "buildingNumber": "316",
+        "postalCode": "47891",
+        "city": "Dogana",
+        "province": "RSM"
+    },
+    "BASMSMSM": {
+        "logo": "https://assets.cdn.io.italia.it/logos/abi/03034.png",
+        "fiscalCode": "91010030400",
+        "name": "Banca Agricola Commerciale S.p.A.",
+        "companyName": "Banca Agricola Commerciale S.p.A.",
+        "address": "Via Tre Settembre",
+        "buildingNumber": "316",
+        "postalCode": "47891",
+        "city": "Dogana",
+        "province": "RSM"
     }
 }
