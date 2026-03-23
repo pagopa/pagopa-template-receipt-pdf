@@ -6895,5 +6895,16 @@
         "postalCode": "47891",
         "city": "Dogana",
         "province": "RSM"
+    },
+    "ABI05015": {
+        "logo": "https://assets.cdn.io.italia.it/logos/abi/05015.png",
+        "fiscalCode": "02261070136",
+        "name": "Banca Progetto S.p.A.",
+        "companyName": "Banca Progetto S.p.A.",
+        "address": "Via Bocchetto",
+        "buildingNumber": "6",
+        "postalCode": "20123",
+        "city": "Milano",
+        "province": "MI"
     }
 }
