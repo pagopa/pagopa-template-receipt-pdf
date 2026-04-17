@@ -6906,5 +6906,16 @@
         "postalCode": "20123",
         "city": "Milano",
         "province": "MI"
+    },
+    "ABI03417": {
+        "logo": "https://assets.cdn.io.italia.it/logos/abi/03417.png",
+        "fiscalCode": "01307450351",
+        "name": "Banca Privata Leasing S.p.A.",
+        "companyName": "Banca Privata Leasing S.p.A.",
+        "address": "Via Panfilo Castaldi da Feltre",
+        "buildingNumber": "1/A",
+        "postalCode": "42122",
+        "city": "Reggio nell'Emilia",
+        "province": "RE"
     }
 }
