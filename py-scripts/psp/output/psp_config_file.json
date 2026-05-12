@@ -6917,5 +6917,16 @@
         "postalCode": "42122",
         "city": "Reggio nell'Emilia",
         "province": "RE"
+    },
+    "ABI36935": {
+        "logo": "https://assets.cdn.io.italia.it/logos/abi/36935.png",
+        "fiscalCode": "02654890025",
+        "name": "FABRICK S.P.A.",
+        "companyName": "FABRICK S.P.A.",
+        "address": "Piazza Gaudenzio Sella",
+        "buildingNumber": "1",
+        "postalCode": "13900",
+        "city": "Biella",
+        "province": "BI"
     }
 }
