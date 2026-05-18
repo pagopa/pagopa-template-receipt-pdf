@@ -195,7 +195,7 @@ parser.add_argument('--psp-config-file', type=Path, required=True,
                     default='/output/psp_config_file.json')
 parser.add_argument('--psp-cdn-logo', type=Path, required=True,
                     help='Path to the \'CDN\' to use to retrieve the logo at runtime.',
-                    default='assets.cdn.io.italia.it/logos/abi')
+                    default='assets.io.pagopa.it/logos/abi')
 args = parser.parse_args()
 dirname = os.path.dirname(__file__)
 
