@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.20">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
   <title>Il riepilogo del tuo pagamento</title>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -15,7 +15,7 @@
       {{!-- Header --}}
       {{> header}}
 
-      <main>
+      <main aria-label="Dettagli del pagamento">
         <div class="content-grid">
 
           {{!-- Transaction Data: summary about the PSP, payment methods, etc… --}}
@@ -48,10 +48,13 @@
     <div class="page-wrapper">
 
       {{!-- Header --}}
-      {{> header}}
+      {{> header isContinuation=true}}
 
       {{!-- MAIN CONTENT -- START --}}
-      <main>
+      {{!-- Continuation block: the document already exposes one <main> on the
+      first page, and only one <main> is allowed, so this repeat is a labelled
+      <section> (region landmark) instead --}}
+      <section class="main-continuation" aria-label="Dettagli del pagamento (continua)">
         <div class="content-grid">
 
           <section class="transaction-detail">
@@ -65,11 +68,11 @@
           {{> transactionTotals}}
 
         </div>
-      </main>
+      </section>
       {{!-- MAIN CONTENT -- END --}}
 
       {{!-- Footer --}}
-      {{> footer}}
+      {{> footer isContinuation=true}}
 
     </div>
   </div>

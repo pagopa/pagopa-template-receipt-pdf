@@ -1,7 +1,13 @@
-<header class="page-header">
+<header class="page-header" aria-label="Intestazione{{#if isContinuation}} (continua){{/if}}">
   <section class="pagopa-header">
     <img class="logo" src="assets/logo-pagoPa.svg" />
+    {{#if isContinuation}}
+    {{!-- Continuation pages repeat the title visually, but the document must
+    expose a single <h1> or the heading outline skips a level --}}
+    <p class="title">Ricevuta di pagamento</p>
+    {{else}}
     <h1 class="title">Ricevuta di pagamento</h1>
+    {{/if}}
   </section>
   {{#if transaction.processedByPagoPA}}
   {{#if transaction.psp.logo}}
