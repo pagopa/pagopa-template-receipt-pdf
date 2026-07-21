@@ -39,7 +39,9 @@
       <dt>Metodo di pagamento</dt>
       <dd class="data-value-big">
         <div class="payment-method-group forcedCapitalCase">
-          <img class="payment-method-logo" src={{transaction.paymentMethod.logo}} />
+          {{!-- Decorative (WCAG H67): the method name is shown as text right after
+          the logo, so a non-empty alt would make a screen reader announce it twice --}}
+          <img class="payment-method-logo" alt="" src="{{transaction.paymentMethod.logo}}" />
           {{lowercase transaction.paymentMethod.name}}
         </div>
       </dd>
