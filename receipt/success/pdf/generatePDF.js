@@ -13,10 +13,15 @@ const transactionID = uuidv4(); // ex 'F57E2F8E-25FF-4183-AB7B-4A5EC1A96644'
   const htmlFile = path.resolve("template.html");
 
   await page.goto(`file://${htmlFile}`, { waitUntil: "networkidle2" });
+
+  // Use the document's <title> as the PDF metadata title, so the accessible
+  // document title stays in sync with the single source of truth in the template.
+  const title = await page.title();
+
   await page.pdf({
     path: `pagopa-receipt-${transactionID}.pdf`,
     format: "A4",
-    title: "Ricevuta del pagamento pagoPA",
+    title,
     landscape: false,
     printBackground: true,
   });
