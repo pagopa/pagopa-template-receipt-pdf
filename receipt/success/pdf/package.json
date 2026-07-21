@@ -4,7 +4,8 @@
   "description": "Template used to generate pagoPA PDF receipts",
   "main": "index.js",
   "scripts": {
-    "generate": "node compileHandlebars && node generatePDF"
+    "generate": "node compileHandlebars && node validateHTML && node generatePDF",
+    "validate-html": "node validateHTML"
   },
   "license": "ISC",
   "dependencies": {
@@ -13,6 +14,7 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "html-validate": "^11.5.6",
     "prettier": "^2.7.1",
     "stylelint": "^14.12.0",
     "stylelint-prettier": "^2.0.0"

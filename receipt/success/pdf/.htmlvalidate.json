@@ -1,0 +1,9 @@
+{
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "no-trailing-whitespace": "off",
+    "void-style": ["error", { "style": "selfclosing" }],
+    "heading-level": "error",
+    "prefer-native-element": ["error", { "exclude": ["list", "listitem"] }]
+  }
+}
