@@ -11,11 +11,13 @@
   </section>
   {{#if transaction.processedByPagoPA}}
   {{#if transaction.psp.logo}}
-  <dl class="psp-header">
-    <dt>Per conto di</dt>
-    <dd class="psp-logo">
-      <img alt="{{transaction.psp.name}}" src="{{transaction.psp.logo}}" />
-    </dd>
+  <dl class="psp-header" role="list">
+    <div class="kv-item" role="listitem">
+      <dt>Per conto di</dt>
+      <dd class="psp-logo">
+        <img alt="{{transaction.psp.name}}" src="{{transaction.psp.logo}}" />
+      </dd>
+    </div>
   </dl>
   {{/if}}
   {{/if}}

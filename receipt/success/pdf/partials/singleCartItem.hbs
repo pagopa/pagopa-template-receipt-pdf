@@ -11,50 +11,60 @@
 
   <!-- Debitore (+ codice fiscale) -->
   {{#with this.debtor}}
-  <dl class="data-key-value small transaction-detail-debtor">
-    <dt>Debitore</dt>
-    <dd class="entityGroup">
-      {{#if fullName}}
-      <span class="entityName forcedCapitalCase">{{lowercase fullName}}</span>
-      {{/if}}
-      {{#if taxCode}}
-      <span class="entityCode">{{taxCode}}</span>
-      {{/if}}
-    </dd>
+  <dl class="data-key-value small transaction-detail-debtor" role="list">
+    <div class="kv-item" role="listitem">
+      <dt>Debitore</dt>
+      <dd class="entityGroup">
+        {{#if fullName}}
+        <span class="entityName forcedCapitalCase">{{lowercase fullName}}</span>
+        {{/if}}
+        {{#if taxCode}}
+        <span class="entityCode">{{taxCode}}</span>
+        {{/if}}
+      </dd>
+    </div>
   </dl>
   {{/with}}
 
   <!-- Ente creditore (+ codice fiscale) -->
-  <dl class="data-key-value small transaction-detail-creditor">
-    <dt>Ente Creditore</dt>
-    <dd class="entityGroup">
-      <span class="entityName">{{this.payee.name}}</span>
-      <span class="entityCode">{{this.payee.taxCode}}</span>
-    </dd>
+  <dl class="data-key-value small transaction-detail-creditor" role="list">
+    <div class="kv-item" role="listitem">
+      <dt>Ente Creditore</dt>
+      <dd class="entityGroup">
+        <span class="entityName">{{this.payee.name}}</span>
+        <span class="entityCode">{{this.payee.taxCode}}</span>
+      </dd>
+    </div>
   </dl>
 
   <section class="transaction-detail-paymentData">
 
     <!-- IUV -->
     {{#eq this.refNumber.type "IUV"}}
-    <dl class="data-key-value right-align">
-      <dt>IUV</dt>
-      <dd class="entityCode">{{this.refNumber.value}}</dd>
+    <dl class="data-key-value right-align" role="list">
+      <div class="kv-item" role="listitem">
+        <dt>IUV</dt>
+        <dd class="entityCode">{{this.refNumber.value}}</dd>
+      </div>
     </dl>
     {{/eq}}
 
     <!-- Codice Avviso -->
     {{#eq this.refNumber.type "codiceAvviso"}}
-    <dl class="data-key-value right-align">
-      <dt>Codice avviso</dt>
-      <dd class="entityCode">{{splitAndSpace this.refNumber.value}}</dd>
+    <dl class="data-key-value right-align" role="list">
+      <div class="kv-item" role="listitem">
+        <dt>Codice avviso</dt>
+        <dd class="entityCode">{{splitAndSpace this.refNumber.value}}</dd>
+      </div>
     </dl>
     {{/eq}}
 
     <!-- Importo -->
-    <dl class="data-key-value small right-align amount-value">
-      <dt>Importo</dt>
-      <dd>{{this.amount}}&nbsp;&euro;</dd>
+    <dl class="data-key-value small right-align amount-value" role="list">
+      <div class="kv-item" role="listitem">
+        <dt>Importo</dt>
+        <dd>{{this.amount}}&nbsp;&euro;</dd>
+      </div>
     </dl>
 
   </section>

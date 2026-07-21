@@ -267,6 +267,15 @@ hr {
   gap: 3mm;
 }
 
+.kv-item {
+  /* Groups each <dt>/<dd> pair into one PDF /LI, so a screen reader announces the
+  term and its value as a single item: Chromium maps <dl>/<dt>/<dd> to /NonStruct
+  (no semantics) but honours role="list"/"listitem".
+  display:contents keeps the pair as direct grid/flex children of the <dl>, so the
+  wrapper adds semantics without affecting layout. */
+  display: contents;
+}
+
 .transaction-summary-key-value {
   margin: 0;
   display: grid;
