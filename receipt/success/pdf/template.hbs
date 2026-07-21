@@ -36,7 +36,7 @@
         </div>
       </main>
 
-      {{!-- Footer --}}
+      {{!-- Footer -- real (first occurrence) --}}
       {{> footer}}
 
     </div>
@@ -47,8 +47,8 @@
   <div class="page">
     <div class="page-wrapper">
 
-      {{!-- Header --}}
-      {{> header isContinuation=true}}
+      {{!-- Header -- repeated running header (hidden from reading order) --}}
+      {{> header isRepeated=true}}
 
       {{!-- MAIN CONTENT -- START --}}
       {{!-- Continuation block: the document already exposes one <main> on the
@@ -71,8 +71,8 @@
       </section>
       {{!-- MAIN CONTENT -- END --}}
 
-      {{!-- Footer --}}
-      {{> footer isContinuation=true}}
+      {{!-- Footer -- repeated running footer (hidden from reading order) --}}
+      {{> footer isRepeated=true}}
 
     </div>
   </div>

@@ -1,7 +1,10 @@
-<header class="page-header" aria-label="Intestazione{{#if isContinuation}} (continua){{/if}}">
+{{!-- On continuation pages this header is a repeated running header: hide it from
+the reading order (aria-hidden -> excluded from the PDF tag tree) so the real header
+is announced only once, at the start of the document. --}}
+<header class="page-header"{{#if isRepeated}} role="presentation" aria-hidden="true"{{/if}}>
   <section class="pagopa-header">
     <img class="logo" alt="pagoPA" src="assets/logo-pagoPa.svg" />
-    {{#if isContinuation}}
+    {{#if isRepeated}}
     {{!-- Continuation pages repeat the title visually, but the document must
     expose a single <h1> or the heading outline skips a level --}}
     <p class="title">Ricevuta di pagamento</p>

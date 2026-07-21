@@ -1,4 +1,7 @@
-<footer class="page-footer" aria-label="Note e informazioni{{#if isContinuation}} (continua){{/if}}">
+{{!-- On continuation pages this footer is a repeated running footer: hide it from
+the reading order (aria-hidden -> excluded from the PDF tag tree) so the real footer
+is announced only once, at its first occurrence. --}}
+<footer class="page-footer"{{#if isRepeated}} role="presentation" aria-hidden="true"{{/if}}>
 
   <div class="footer-disclaimer">
     <p>
@@ -44,7 +47,7 @@
 
   </div>
 
-  <p>Serve aiuto? Visita <a class="footer-link" href="https://www.pagopa.gov.it/assistenza">pagopa.gov.it/assistenza</a> · ID ricevuta:
+  <p>Serve aiuto? Visita <a class="footer-link" href="https://www.pagopa.gov.it/assistenza"{{#if isRepeated}} tabindex="-1"{{/if}}>pagopa.gov.it/assistenza</a> · ID ricevuta:
     <strong class="transaction-id">{{serviceCustomerId}}</strong>
   </p>
 
