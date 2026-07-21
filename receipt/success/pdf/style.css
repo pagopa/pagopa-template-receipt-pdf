@@ -172,6 +172,12 @@ main,
   margin: 0;
 }
 
+.footer-link {
+  font-weight: 700;
+  color: inherit;
+  text-decoration: underline;
+}
+
 .footer-disclaimer {
   line-height: 1.35;
 }
