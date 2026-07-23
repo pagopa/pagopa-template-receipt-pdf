@@ -15,7 +15,7 @@
       {{!-- Header --}}
       {{> header}}
 
-      <main aria-label="Dettagli del pagamento">
+      <main>
         <div class="content-grid">
 
           {{!-- Transaction Data: summary about the PSP, payment methods, etc… --}}
@@ -54,7 +54,7 @@
       {{!-- Continuation block: the document already exposes one <main> on the
       first page, and only one <main> is allowed, so this repeat is a labelled
       <section> (region landmark) instead --}}
-      <section class="main-continuation" aria-label="Dettagli del pagamento (continua)">
+      <section class="main-continuation">
         <div class="content-grid">
 
           <section class="transaction-detail">
