@@ -36,8 +36,9 @@
         </div>
       </main>
 
-      {{!-- Footer -- real (first occurrence) --}}
-      {{> footer}}
+      {{!-- Footer -- running footer when a continuation page follows, real when
+      the receipt fits on a single page --}}
+      {{> footer isRepeated=(gt cart.items.length 3)}}
 
     </div>
   </div>
@@ -71,8 +72,8 @@
       </section>
       {{!-- MAIN CONTENT -- END --}}
 
-      {{!-- Footer -- repeated running footer (hidden from reading order) --}}
-      {{> footer isRepeated=true}}
+      {{!-- Footer -- real (last occurrence, closes the reading order) --}}
+      {{> footer}}
 
     </div>
   </div>
