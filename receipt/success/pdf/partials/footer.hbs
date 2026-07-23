@@ -1,6 +1,6 @@
 {{!-- On continuation pages this footer is a repeated running footer: hide it from
 the reading order (aria-hidden -> excluded from the PDF tag tree) so the real footer
-is announced only once, at its first occurrence. --}}
+is announced only once, at the end of the document. --}}
 <footer class="page-footer"{{#if isRepeated}} role="presentation" aria-hidden="true"{{/if}}>
 
   <div class="footer-disclaimer">
