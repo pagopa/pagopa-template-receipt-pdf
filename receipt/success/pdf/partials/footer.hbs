@@ -47,7 +47,15 @@ is announced only once, at its first occurrence. --}}
 
   </div>
 
-  <p>Serve aiuto? Visita <a class="footer-link" href="https://www.pagopa.gov.it/assistenza"{{#if isRepeated}} tabindex="-1"{{/if}}>pagopa.gov.it/assistenza</a> · ID ricevuta:
+  {{!-- No anchor in the repeated copy: it would emit a clickable link annotation
+  that is absent from the tag tree --}}
+  <p>Serve aiuto? Visita
+    {{#if isRepeated}}
+    <span class="footer-link">pagopa.gov.it/assistenza</span>
+    {{else}}
+    <a class="footer-link" href="https://www.pagopa.gov.it/assistenza">pagopa.gov.it/assistenza</a>
+    {{/if}}
+    · ID ricevuta:
     <strong class="transaction-id">{{serviceCustomerId}}</strong>
   </p>
 
