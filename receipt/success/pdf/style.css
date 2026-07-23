@@ -139,7 +139,8 @@ body {
   object-position: top right;
 }
 
-main {
+main,
+.main-continuation {
   flex: 1 0 auto;
 }
 
@@ -155,7 +156,7 @@ main {
   text-transform: uppercase;
 }
 
-footer {
+.page-footer {
   flex-shrink: 0;
   width: 100%;
   font-size: 10pt;
@@ -167,8 +168,14 @@ footer {
   row-gap: 5mm;
 }
 
-footer * {
+.page-footer * {
   margin: 0;
+}
+
+.footer-link {
+  font-weight: 700;
+  color: inherit;
+  text-decoration: underline;
 }
 
 .footer-disclaimer {
