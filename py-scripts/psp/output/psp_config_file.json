@@ -6928,5 +6928,16 @@
         "postalCode": "13900",
         "city": "Biella",
         "province": "BI"
-    }
+    },
+	"ABI18211": {
+	    "logo": "https://assets.cdn.io.italia.it/logos/abi/18211.png",
+	    "fiscalCode": "17934661004",
+	    "name": "MONETIC S.P.A.",
+	    "companyName": "MONETIC S.P.A.",
+	    "address": "VIA LIMA",
+	    "buildingNumber": "28",
+	    "postalCode": "00198",
+	    "city": "ROMA",
+	    "province": "RM"
+	}
 }
