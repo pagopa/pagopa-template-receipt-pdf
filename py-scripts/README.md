@@ -26,9 +26,9 @@ options:
   --psp-config-file PSP_CONFIG_FILE
                         Path to the PSP configuration file to generate. (default: /output/psp_config_file.json)
   --psp-cdn-logo PSP_CDN_LOGO
-                        Path to the 'CDN' to use to retrieve the logo at runtime. (default: assets.cdn.io.italia.it/logos/abi)
+                        Path to the 'CDN' to use to retrieve the logo at runtime. (default: assets.io.pagopa.it/logos/abi)
 ```
 Just an example:
 ````
-python3 psp/generate_psp_config.py --psp-registry-table /input/contracts_crm_anagrafica.csv --psp-contracts-table /input/contracts_crm_contracts.csv --psp-short-name /input/psp_short_name.csv --psp-cdn-logo assets.cdn.io.italia.it/logos/abi --psp-config-file /output/psp_config_file.json
+python3 psp/generate_psp_config.py --psp-registry-table /input/contracts_crm_anagrafica.csv --psp-contracts-table /input/contracts_crm_contracts.csv --psp-short-name /input/psp_short_name.csv --psp-cdn-logo assets.io.pagopa.it/logos/abi --psp-config-file /output/psp_config_file.json
 ````
