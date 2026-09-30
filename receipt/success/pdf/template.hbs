@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="it" xmlns="http://www.w3.org/1999/xhtml" version="0.0.20">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <title>Il riepilogo del tuo pagamento</title>
+  <title>Ricevuta di pagamento - ID transazione: {{transaction.rrn}}</title>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -36,8 +36,9 @@
         </div>
       </main>
 
-      {{!-- Footer --}}
-      {{> footer}}
+      {{!-- Footer -- running footer when a continuation page follows, real when
+      the receipt fits on a single page --}}
+      {{> footer isRepeated=(gt cart.items.length 3)}}
 
     </div>
   </div>
@@ -47,11 +48,14 @@
   <div class="page">
     <div class="page-wrapper">
 
-      {{!-- Header --}}
-      {{> header}}
+      {{!-- Header -- repeated running header (hidden from reading order) --}}
+      {{> header isRepeated=true}}
 
       {{!-- MAIN CONTENT -- START --}}
-      <main>
+      {{!-- Continuation block: the document already exposes one <main> on the
+      first page, and only one <main> is allowed, so this repeat is a labelled
+      <section> (region landmark) instead --}}
+      <section class="main-continuation">
         <div class="content-grid">
 
           <section class="transaction-detail">
@@ -65,10 +69,10 @@
           {{> transactionTotals}}
 
         </div>
-      </main>
+      </section>
       {{!-- MAIN CONTENT -- END --}}
 
-      {{!-- Footer --}}
+      {{!-- Footer -- real (last occurrence, closes the reading order) --}}
       {{> footer}}
 
     </div>

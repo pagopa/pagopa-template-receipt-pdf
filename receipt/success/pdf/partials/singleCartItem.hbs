@@ -1,31 +1,33 @@
 <section class="transaction-detail-group">
 
   {{#if this.subject}}
-  <div class="transaction-detail-paymentSubject">
-    <!-- Oggetto del pagamento (Carrello singolo) -->
-    {{#not this.length 1}}
-    <h2 class="paymentSubject">{{{this.subject}}}</h2>
-    {{/not}}
-  </div>
+    <div class="transaction-detail-paymentSubject">
+      <!-- Oggetto del pagamento (Carrello singolo) -->
+      {{#not this.length 1}}
+        <h2 class="paymentSubject">{{{this.subject}}}</h2>
+      {{/not}}
+    </div>
   {{/if}}
 
   <!-- Debitore (+ codice fiscale) -->
   {{#with this.debtor}}
-  <dl class="data-key-value small transaction-detail-debtor">
-    <dt>Debitore</dt>
-    <dd class="entityGroup">
-      {{#if fullName}}
-      <span class="entityName forcedCapitalCase">{{lowercase fullName}}</span>
-      {{/if}}
-      {{#if taxCode}}
-      <span class="entityCode">{{taxCode}}</span>
-      {{/if}}
-    </dd>
-  </dl>
+    <dl class="data-key-value small transaction-detail-debtor" role="paragraph">
+      <dt>Debitore</dt>
+      <dd class="entityGroup">
+        {{#if fullName}}
+          <span class="entityName forcedCapitalCase">{{lowercase
+              fullName
+            }}</span>
+        {{/if}}
+        {{#if taxCode}}
+          <span class="entityCode">{{taxCode}}</span>
+        {{/if}}
+      </dd>
+    </dl>
   {{/with}}
 
   <!-- Ente creditore (+ codice fiscale) -->
-  <dl class="data-key-value small transaction-detail-creditor">
+  <dl class="data-key-value small transaction-detail-creditor" role="paragraph">
     <dt>Ente Creditore</dt>
     <dd class="entityGroup">
       <span class="entityName">{{this.payee.name}}</span>
@@ -37,22 +39,22 @@
 
     <!-- IUV -->
     {{#eq this.refNumber.type "IUV"}}
-    <dl class="data-key-value right-align">
-      <dt>IUV</dt>
-      <dd class="entityCode">{{this.refNumber.value}}</dd>
-    </dl>
+      <dl class="data-key-value right-align" role="paragraph">
+        <dt>IUV</dt>
+        <dd class="entityCode">{{this.refNumber.value}}</dd>
+      </dl>
     {{/eq}}
 
     <!-- Codice Avviso -->
     {{#eq this.refNumber.type "codiceAvviso"}}
-    <dl class="data-key-value right-align">
-      <dt>Codice avviso</dt>
-      <dd class="entityCode">{{splitAndSpace this.refNumber.value}}</dd>
-    </dl>
+      <dl class="data-key-value right-align" role="paragraph">
+        <dt>Codice avviso</dt>
+        <dd class="entityCode">{{splitAndSpace this.refNumber.value}}</dd>
+      </dl>
     {{/eq}}
 
     <!-- Importo -->
-    <dl class="data-key-value small right-align amount-value">
+    <dl class="data-key-value small right-align amount-value" role="paragraph">
       <dt>Importo</dt>
       <dd>{{this.amount}}&nbsp;&euro;</dd>
     </dl>

@@ -1,4 +1,7 @@
-<footer>
+{{!-- On continuation pages this footer is a repeated running footer: hide it from
+the reading order (aria-hidden -> excluded from the PDF tag tree) so the real footer
+is announced only once, at the end of the document. --}}
+<footer class="page-footer"{{#if isRepeated}} role="presentation" aria-hidden="true"{{/if}}>
 
   <div class="footer-disclaimer">
     <p>
@@ -44,7 +47,15 @@
 
   </div>
 
-  <p>Serve aiuto? Visita <strong><u>pagopa.gov.it/assistenza</u></strong> · ID ricevuta:
+  {{!-- No anchor in the repeated copy: it would emit a clickable link annotation
+  that is absent from the tag tree --}}
+  <p>Serve aiuto? Visita
+    {{#if isRepeated}}
+    <span class="footer-link">pagopa.gov.it/assistenza</span>
+    {{else}}
+    <a class="footer-link" href="https://www.pagopa.gov.it/assistenza">pagopa.gov.it/assistenza</a>
+    {{/if}}
+    · ID ricevuta:
     <strong class="transaction-id">{{serviceCustomerId}}</strong>
   </p>
 

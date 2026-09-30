@@ -3,7 +3,7 @@
   <section class="transaction-data-group">
 
     {{#with user.data}}
-    <dl class="data-key-value">
+    <dl class="data-key-value" role="paragraph">
       <dt>Eseguito da</dt>
       <dd class="entityGroup">
         {{#if fullName}}
@@ -15,14 +15,14 @@
     {{/with}}
 
     {{#if transaction.rrn}}
-    <dl class="data-key-value">
+    <dl class="data-key-value" role="paragraph">
       <dt>ID transazione (RRN)</dt>
       <dd class="entityCode">{{transaction.rrn}}</dd>
     </dl>
     {{/if}}
 
     {{#if transaction.authCode}}
-    <dl class="data-key-value">
+    <dl class="data-key-value" role="paragraph">
       <dt>Codice autorizzativo</dt>
       <dd class="entityCode">{{transaction.authCode}}</dd>
     </dl>
@@ -35,11 +35,13 @@
     {{#unless transaction.requestedByDebtor}}
 
     {{#if transaction.paymentMethod.name}}
-    <dl class="data-key-value">
+    <dl class="data-key-value" role="paragraph">
       <dt>Metodo di pagamento</dt>
       <dd class="data-value-big">
         <div class="payment-method-group forcedCapitalCase">
-          <img class="payment-method-logo" src={{transaction.paymentMethod.logo}} />
+          {{!-- Decorative (WCAG H67): the method name is shown as text right after
+          the logo, so a non-empty alt would make a screen reader announce it twice --}}
+          <img class="payment-method-logo" alt="" src="{{transaction.paymentMethod.logo}}" />
           {{lowercase transaction.paymentMethod.name}}
         </div>
       </dd>
@@ -47,7 +49,7 @@
     {{/if}}
 
     {{#if transaction.paymentMethod.accountHolder}}
-    <dl class="data-key-value">
+    <dl class="data-key-value" role="paragraph">
       <dt>Intestato a</dt>
       <dd class="data-value-big forcedCapitalCase">{{lowercase transaction.paymentMethod.accountHolder}}</dd>
     </dl>
@@ -56,13 +58,13 @@
     {{/unless}}
 
     {{#if transaction.psp}}
-    <dl class="data-key-value">
+    <dl class="data-key-value" role="paragraph">
       <dt>Gestore della transazione (PSP)</dt>
       <dd class="data-value-big">{{transaction.psp.name}}</dd>
     </dl>
     {{/if}}
 
-    <dl class="data-key-value">
+    <dl class="data-key-value" role="paragraph">
       <dt>Data e ora</dt>
       <dd class="data-value-big">{{transaction.timestamp}}</dd>
     </dl>
