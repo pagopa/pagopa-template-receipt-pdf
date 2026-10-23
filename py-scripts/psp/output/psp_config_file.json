@@ -1617,10 +1617,10 @@
         "province": "SA"
     },
     "ABI07066": {
-        "logo": "https://assets.cdn.io.italia.it/logos/abi/07066.png",
+        "logo": "https://assets.cdn.platform.pagopa.it/logos/abi/07066.png",
         "fiscalCode": "03685090650",
-        "name": "BCC di Buccino e dei Comuni Cilentani",
-        "companyName": "Banca Di Credito Cooperativo Di Buccino E Dei Comuni Cilentani Societ\u00e0 Cooperativa",
+        "name": "BCC Magna Grecia SC",
+        "companyName": "Banca di Credito Cooperativo Magna Grecia - Societ\u00e0 Cooperativa",
         "address": "Via S. Pio X",
         "buildingNumber": "30/32",
         "postalCode": "84043",
@@ -3575,10 +3575,10 @@
         "province": "SA"
     },
     "ABI08378": {
-        "logo": "https://assets.cdn.io.italia.it/logos/abi/08378.png",
+        "logo": "https://assets.cdn.platform.pagopa.it/logos/abi/08378.png",
         "fiscalCode": "00258900653",
-        "name": "BCC Campania Centro - Cassa Rurale ed Artigiana",
-        "companyName": "Bcc Campania Centro Cassa Rurale Ed Artigiana Societ\u00e0 Cooperativa",
+        "name": "CRA BCC Campania Centro SC",
+        "companyName": "BCC Campania Centro - Cassa Rurale ed Artigiana - Societ\u00e0 Cooperativa",
         "address": "Piazza A. De Curtis",
         "buildingNumber": "1-2",
         "postalCode": "84091",
@@ -5929,9 +5929,9 @@
         "province": "RN"
     },
     "ABI08995": {
-        "logo": "https://assets.cdn.io.italia.it/logos/abi/08995.png",
+        "logo": "https://assets.cdn.platform.pagopa.it/logos/abi/08995.png",
         "fiscalCode": "04241950403",
-        "name": "Rivierabanca - Credito Cooperativo di Rimini e Gradara",
+        "name": "Riviera Banca - Societ\u00e0 Cooperativa",
         "companyName": "Rivierabanca Credito Cooperativo Di Rimini E Gradara Societ\u00e0 Cooperativa",
         "address": "Via Mancini",
         "buildingNumber": "21",
@@ -6939,5 +6939,16 @@
         "postalCode": "00198",
         "city": "ROMA",
         "province": "RM"
+    },
+    "ABI33538": {
+        "logo": "https://assets.cdn.platform.pagopa.it/logos/abi/33538.png",
+        "fiscalCode": "06038441215",
+        "name": "Banca Nazionale del Lavoro",
+        "companyName": "Mondial Bony Service S.P.A.",
+        "address": "Via Nuova Poggioreale",
+        "buildingNumber": "61",
+        "postalCode": "80143",
+        "city": "Napoli",
+        "province": "NA"
     }
 }
