@@ -32,7 +32,7 @@
         },
         "payee": {
           "name": "Comune di Controguerra",
-          "taxCode": 82001760675
+          "taxCode": "82001760675"
         },
         "subject": "Pagamento Retta Scolastica 2024 Istituto Comprensivo &quot;Leonardo Da Vinci&quot; Grosseto",
         "amount": "150,00"
@@ -48,7 +48,7 @@
         },
         "payee": {
           "name": "Comune di Controguerra",
-          "taxCode": 82001760675
+          "taxCode": "82001760675"
         },
         "subject": "Multa per eccesso di velocit&agrave",
         "amount": "72,00"
