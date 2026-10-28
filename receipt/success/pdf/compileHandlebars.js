@@ -11,7 +11,7 @@ const importFile = (filePath, fileName) => readFileSync(`${filePath}/${fileName}
 const requireFile = (filePath, fileName) => require(`${filePath}/${fileName}`);
 
 // Dynamically imports helpers & partials
-const helpersPath = '../helpers';
+const helpersPath = './helpers';
 const partialPath = `./partials`;
 
 const helperFiles = getFiles(`${helpersPath}`);

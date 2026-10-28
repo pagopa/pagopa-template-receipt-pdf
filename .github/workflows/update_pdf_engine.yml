@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "receipt/success/helpers"
+      - "receipt/success/pdf/helpers"
       - "receipt/success/pdf/partials"
 
   workflow_dispatch:
@@ -24,7 +24,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.BOT_TOKEN_GITHUB }}
         with:
-          source_folder: "receipt/success/helpers"
+          source_folder: "receipt/success/pdf/helpers"
           destination_repo: "pagopa/pagopa-pdf-engine"
           destination_folder: "node/pdf-generate/helpers/commons"
           destination_base_branch: "main"
