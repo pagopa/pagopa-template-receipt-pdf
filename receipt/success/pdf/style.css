@@ -10,6 +10,8 @@
   --divider-color: #E3E7EB;
   --divider-width: 0.5mm;
   --divider-margin: 6mm;
+  /* Space between cart items, around their dividers */
+  --cart-item-spacing: 10pt;
   /* Font sizes */
   --caption-fsize: 9pt;
   --title-fsize: 10pt;
@@ -154,6 +156,7 @@ main,
 .paymentSubject {
   margin: 0;
   font-size: var(--title-fsize);
+  line-height: 1.2;
   text-transform: uppercase;
   /* Break titles without spaces */
   overflow-wrap: anywhere;
@@ -223,8 +226,8 @@ hr {
 .transaction-detail-divider {
   width: 100%;
   border-top: var(--divider-width) solid var(--divider-color);
-  margin-block-start: var(--divider-margin);
-  margin-block-end: var(--divider-margin);
+  margin-block-start: var(--cart-item-spacing);
+  margin-block-end: var(--cart-item-spacing);
 }
 
 .transaction-detail-group {
@@ -287,7 +290,7 @@ hr {
 
 .transaction-detail {
   margin-block-start: var(--divider-margin);
-  padding-block-start: var(--divider-margin);
+  padding-block-start: var(--cart-item-spacing);
   display: flex;
   flex-direction: column;
   border-top: var(--divider-width) solid var(--divider-color);
