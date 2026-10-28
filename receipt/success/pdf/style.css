@@ -67,6 +67,7 @@ body {
   position: relative;
   box-sizing: border-box;
   page-break-after: always;
+  /* A4 width */
   width: 210mm;
   height: 296mm;
   padding: 10mm;
@@ -154,6 +155,8 @@ main,
   margin: 0;
   font-size: var(--title-fsize);
   text-transform: uppercase;
+  /* Break titles without spaces */
+  overflow-wrap: anywhere;
 }
 
 .page-footer {
@@ -235,6 +238,35 @@ hr {
 .transaction-detail-group:not(:has(.transaction-detail-paymentSubject)) {
   grid-template-areas:
     "debtor creditor paymentData";
+}
+
+/* Barcode band above the creditor and the payment data, so the three columns
+   stay aligned */
+.transaction-detail-group:has(.transaction-detail-barcode) {
+  grid-template-areas: "paymentSubject paymentSubject paymentSubject"
+    ". creditorBarcode paymentDataBarcode"
+    "debtor creditor paymentData";
+}
+
+.transaction-detail-group:has(.transaction-detail-barcode):not(:has(.transaction-detail-paymentSubject)) {
+  grid-template-areas:
+    ". creditorBarcode paymentDataBarcode"
+    "debtor creditor paymentData";
+}
+
+.transaction-detail-creditorBarcode {
+  grid-area: creditorBarcode;
+}
+
+.transaction-detail-paymentDataBarcode {
+  grid-area: paymentDataBarcode;
+  justify-self: end;
+}
+
+/* Sized in mm by the `genBarcode` helper: never scale it */
+.transaction-detail-barcode {
+  display: block;
+  max-width: none;
 }
 
 .transaction-detail-paymentSubject:not(:empty) {

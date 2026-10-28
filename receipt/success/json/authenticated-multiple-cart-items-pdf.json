@@ -38,14 +38,18 @@
       {
         "refNumber": {
           "type": "codiceAvviso",
-          "value": "123456789012345678"
+          "value": "301234567890123416"
+        },
+        "debtor": {
+          "fullName": "Giuseppe Bianchi",
+          "taxCode": "BNCGSP70A12F205X"
         },
         "payee": {
-          "name": "Comune di Controguerra",
-          "taxCode": "82001760675"
+          "name": "Ministero dell'Economia e delle Finanze",
+          "taxCode": "80415740580"
         },
-        "subject": "TARI 2022",
-        "amount": "150,00",
+        "subject": "Contributo amministrativo per il rilascio del passaporto",
+        "amount": "42,50",
         "showBarcode": true
       },
       {

@@ -172,6 +172,11 @@ braces@^3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
+bwip-js@^4.3.2:
+  version "4.11.4"
+  resolved "https://registry.yarnpkg.com/bwip-js/-/bwip-js-4.11.4.tgz#01e7cc5fe0d9a1aff0715ed34bf5b8966a81e3b1"
+  integrity sha512-FOXnOQkinxog8FwxdnPB+8k2wRqwPnqXwxX37KcXOtMNW+9CinOkGv9MtIoRC4HX/UyogT0/9lIp6FDm2DcquQ==
+
 callsites@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-3.1.0.tgz#b3630abd8943432f54b3f0519238e33cd7df2f73"
