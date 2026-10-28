@@ -18,7 +18,7 @@
       alt="Codice a barre del codice fiscale dell'ente creditore" />
     <img class="transaction-detail-barcode transaction-detail-paymentDataBarcode"
       src="{{genBarcode this.refNumber.value}}"
-      alt="Codice a barre {{#eq this.refNumber.type "IUV"}}dello IUV{{else}}del codice avviso{{/eq}}" />
+      alt="Codice a barre {{#eq this.refNumber.type "IUV"}}del codice IUV{{else}}del codice avviso{{/eq}}" />
   {{/if}}
 
   <!-- Debitore (+ codice fiscale) -->
