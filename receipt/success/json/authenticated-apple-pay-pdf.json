@@ -20,7 +20,7 @@
     "authCode": "9999999999",
     "paymentMethod": {
       "name": "Apple Pay",
-      "logo": "../assets/methods/apple-pay.png",
+      "logo": "assets/apple-pay.png",
       "extraFee": false
     },
     "processedByPagoPA": true
@@ -45,7 +45,7 @@
         },
         "payee": {
           "name": "Comune di Controguerra",
-          "taxCode": 82001760675
+          "taxCode": "82001760675"
         },
         "subject": "TARI 2022",
         "amount": "150,00"

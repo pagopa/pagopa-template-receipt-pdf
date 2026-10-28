@@ -9,6 +9,18 @@
     </div>
   {{/if}}
 
+  <!-- Codici a barre: codice fiscale dell'ente creditore e numero di riferimento (es. codice avviso) -->
+  {{#if this.showBarcode}}
+    {{!-- Alt texts name the code without its digits: the same values are
+    printed as text in the columns below --}}
+    <img class="transaction-detail-barcode transaction-detail-creditorBarcode"
+      src="{{genBarcode this.payee.taxCode}}"
+      alt="Codice a barre del codice fiscale dell'ente creditore" />
+    <img class="transaction-detail-barcode transaction-detail-paymentDataBarcode"
+      src="{{genBarcode this.refNumber.value}}"
+      alt="Codice a barre {{#eq this.refNumber.type "IUV"}}del codice IUV{{else}}del codice avviso{{/eq}}" />
+  {{/if}}
+
   <!-- Debitore (+ codice fiscale) -->
   {{#with this.debtor}}
     <dl class="data-key-value small transaction-detail-debtor" role="paragraph">

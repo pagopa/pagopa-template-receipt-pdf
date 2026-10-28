@@ -26,6 +26,9 @@ const transactionID = uuidv4(); // ex 'F57E2F8E-25FF-4183-AB7B-4A5EC1A96644'
     printBackground: true,
     // Emit the PDF structure tree; the accessible output depends on it
     tagged: true,
+    // Keep at 1: barcodes are sized in CSS mm (helpers/genBarcode.js), which
+    // stay true millimetres in the PDF only when the page isn't rescaled
+    scale: 1,
   });
 
   await browser.close();

@@ -11,7 +11,7 @@ const importFile = (filePath, fileName) => readFileSync(`${filePath}/${fileName}
 const requireFile = (filePath, fileName) => require(`${filePath}/${fileName}`);
 
 // Dynamically imports helpers & partials
-const helpersPath = '../helpers';
+const helpersPath = './helpers';
 const partialPath = `./partials`;
 
 const helperFiles = getFiles(`${helpersPath}`);
@@ -34,11 +34,13 @@ const template = Handlebars.compile(templateFile);
 // Load the data for the template
 const data = require("../json/authenticated-multiple-cart-items-pdf.json");
 
-// Pages are a fixed height with overflow:hidden: beyond this the items, the
-// totals and the footer are silently clipped (empirically verified)
-const MAX_CART_ITEMS = 7;
-if (data.cart?.items?.length > MAX_CART_ITEMS) {
-  console.error(`❌ ${data.cart.items.length} cart items exceed the ${MAX_CART_ITEMS} that fit: the receipt would be clipped.`);
+// Pages are a fixed height with overflow:hidden: beyond the two pages'
+// capacity the items, the totals and the footer are silently clipped
+const itemsPerPage = require(`${helpersPath}/itemsPerPage`);
+const items = data.cart?.items ?? [];
+const maxCartItems = itemsPerPage(items, "first") + itemsPerPage(items, "next");
+if (items.length > maxCartItems) {
+  console.error(`❌ ${items.length} cart items exceed the ${maxCartItems} that fit: the receipt would be clipped.`);
   process.exit(1);
 }
 

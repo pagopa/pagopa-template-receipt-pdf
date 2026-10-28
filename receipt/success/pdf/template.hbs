@@ -22,14 +22,14 @@
           {{> transactionData}}
 
           <section class="transaction-detail">
-            {{#each (slice cart.items 0 3)}}
+            {{#each (slice cart.items 0 (itemsPerPage cart.items "first"))}}
 
             {{> singleCartItem}}
 
             {{/each}}
           </section>
 
-          {{#if (lte cart.items.length 3)}}
+          {{#if (lte cart.items.length (itemsPerPage cart.items "first"))}}
           {{> transactionTotals}}
           {{/if}}
 
@@ -38,12 +38,12 @@
 
       {{!-- Footer -- running footer when a continuation page follows, real when
       the receipt fits on a single page --}}
-      {{> footer isRepeated=(gt cart.items.length 3)}}
+      {{> footer isRepeated=(gt cart.items.length (itemsPerPage cart.items "first"))}}
 
     </div>
   </div>
 
-  {{#if (gt cart.items.length 3)}}
+  {{#if (gt cart.items.length (itemsPerPage cart.items "first"))}}
 
   <div class="page">
     <div class="page-wrapper">
@@ -60,7 +60,7 @@
         <div class="content-grid">
 
           <section class="transaction-detail">
-            {{#each (slice cart.items 3)}}
+            {{#each (slice cart.items (itemsPerPage cart.items "first"))}}
 
             {{> singleCartItem}}
 

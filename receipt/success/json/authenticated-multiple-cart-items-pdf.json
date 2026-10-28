@@ -2,7 +2,7 @@
   "serviceCustomerId": "F57E2F8E-25FF-4183-AB7B-4A5EC1A96644",
   "transaction": {
     "timestamp": "24 ottobre 2022, 18:45:56",
-    "amount": "224,00",
+    "amount": "116,50",
     "psp": {
       "logo": "assets/nexi-logo.png",
       "name": "Nexi",
@@ -20,7 +20,7 @@
     "authCode": "9999999999",
     "paymentMethod": {
       "name": "Unionpay *1234",
-      "logo": "../assets/methods/unionpay.png",
+      "logo": "assets/unionpay.png",
       "accountHolder": "Marzia Roccaraso",
       "extraFee": false
     },
@@ -38,14 +38,19 @@
       {
         "refNumber": {
           "type": "codiceAvviso",
-          "value": "123456789012345678"
+          "value": "301234567890123416"
+        },
+        "debtor": {
+          "fullName": "Giuseppe Bianchi",
+          "taxCode": "BNCGSP70A12F205X"
         },
         "payee": {
-          "name": "Comune di Controguerra",
-          "taxCode": 82001760675
+          "name": "Ministero dell'Economia e delle Finanze",
+          "taxCode": "80415740580"
         },
-        "subject": "TARI 2022",
-        "amount": "150,00"
+        "subject": "Contributo amministrativo per il rilascio del passaporto",
+        "amount": "42,50",
+        "showBarcode": true
       },
       {
         "refNumber": {
@@ -58,44 +63,13 @@
         },
         "payee": {
           "name": "Comune di Controguerra 1",
-          "taxCode": 82001760675
+          "taxCode": "82001760675"
         },
         "subject": "Multa per eccesso di velocità 1",
-        "amount": "72,00"
-      },
-      {
-        "refNumber": {
-          "type": "IUV",
-          "value": "123456789012345672"
-        },
-        "debtor": {
-          "fullName": "Giuseppe Bianchi 2",
-          "taxCode": "BNCGSP70A12F205X"
-        },
-        "payee": {
-          "name": "Comune di Controguerra 2",
-          "taxCode": 82001760675
-        },
-        "subject": "Multa per eccesso di velocità 2",
-        "amount": "72,00"
-      },
-      {
-        "refNumber": {
-          "type": "IUV",
-          "value": "123456789012345673"
-        },
-        "debtor": {
-          "fullName": "Giuseppe Bianchi 3",
-          "taxCode": "BNCGSP70A12F205X"
-        },
-        "payee": {
-          "name": "Comune di Controguerra 3",
-          "taxCode": 82001760675
-        },
-        "subject": "Multa per eccesso di velocità 3",
-        "amount": "72,00"
+        "amount": "72,00",
+        "showBarcode": true
       }
     ],
-    "amountPartial": "222,00"
+    "amountPartial": "114,50"
   }
 }

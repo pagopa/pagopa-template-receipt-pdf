@@ -10,6 +10,8 @@
   --divider-color: #E3E7EB;
   --divider-width: 0.5mm;
   --divider-margin: 6mm;
+  /* Space between cart items, around their dividers */
+  --cart-item-spacing: 10pt;
   /* Font sizes */
   --caption-fsize: 9pt;
   --title-fsize: 10pt;
@@ -67,6 +69,7 @@ body {
   position: relative;
   box-sizing: border-box;
   page-break-after: always;
+  /* A4 width */
   width: 210mm;
   height: 296mm;
   padding: 10mm;
@@ -153,7 +156,10 @@ main,
 .paymentSubject {
   margin: 0;
   font-size: var(--title-fsize);
+  line-height: 1.2;
   text-transform: uppercase;
+  /* Break titles without spaces */
+  overflow-wrap: anywhere;
 }
 
 .page-footer {
@@ -220,8 +226,8 @@ hr {
 .transaction-detail-divider {
   width: 100%;
   border-top: var(--divider-width) solid var(--divider-color);
-  margin-block-start: var(--divider-margin);
-  margin-block-end: var(--divider-margin);
+  margin-block-start: var(--cart-item-spacing);
+  margin-block-end: var(--cart-item-spacing);
 }
 
 .transaction-detail-group {
@@ -235,6 +241,35 @@ hr {
 .transaction-detail-group:not(:has(.transaction-detail-paymentSubject)) {
   grid-template-areas:
     "debtor creditor paymentData";
+}
+
+/* Barcode band above the creditor and the payment data, so the three columns
+   stay aligned */
+.transaction-detail-group:has(.transaction-detail-barcode) {
+  grid-template-areas: "paymentSubject paymentSubject paymentSubject"
+    ". creditorBarcode paymentDataBarcode"
+    "debtor creditor paymentData";
+}
+
+.transaction-detail-group:has(.transaction-detail-barcode):not(:has(.transaction-detail-paymentSubject)) {
+  grid-template-areas:
+    ". creditorBarcode paymentDataBarcode"
+    "debtor creditor paymentData";
+}
+
+.transaction-detail-creditorBarcode {
+  grid-area: creditorBarcode;
+}
+
+.transaction-detail-paymentDataBarcode {
+  grid-area: paymentDataBarcode;
+  justify-self: end;
+}
+
+/* Sized in mm by the `genBarcode` helper: never scale it */
+.transaction-detail-barcode {
+  display: block;
+  max-width: none;
 }
 
 .transaction-detail-paymentSubject:not(:empty) {
@@ -255,7 +290,7 @@ hr {
 
 .transaction-detail {
   margin-block-start: var(--divider-margin);
-  padding-block-start: var(--divider-margin);
+  padding-block-start: var(--cart-item-spacing);
   display: flex;
   flex-direction: column;
   border-top: var(--divider-width) solid var(--divider-color);
