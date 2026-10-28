@@ -20,7 +20,7 @@
     "authCode": "9999999999",
     "paymentMethod": {
       "name": "Unionpay *1234",
-      "logo": "../assets/methods/unionpay.png",
+      "logo": "assets/unionpay.png",
       "accountHolder": "Marzia Roccaraso",
       "extraFee": false
     },

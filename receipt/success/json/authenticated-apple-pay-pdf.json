@@ -20,7 +20,7 @@
     "authCode": "9999999999",
     "paymentMethod": {
       "name": "Apple Pay",
-      "logo": "../assets/methods/apple-pay.png",
+      "logo": "assets/apple-pay.png",
       "extraFee": false
     },
     "processedByPagoPA": true
