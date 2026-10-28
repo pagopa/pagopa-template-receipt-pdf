@@ -2,7 +2,8 @@ const bwipjs = require("bwip-js");
 
 // pagoPA spec for receipt barcodes: narrow bar 0.25–0.30 mm, bars ~14 mm high.
 const X_DIMENSION_MM = 0.3;
-const BAR_HEIGHT_MM = 14;
+// 14 mm + 7%, within the ±10% tolerance: still in spec when printed at 85%
+const BAR_HEIGHT_MM = 15;
 
 // Plain Code 128 (no FNC1, no GS1 Application Identifiers)
 // Scanners read back exactly `value` without interpreting it as GS1 data
