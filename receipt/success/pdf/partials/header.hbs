@@ -1,14 +1,23 @@
-<header class="page-header">
+{{!-- On continuation pages this header is a repeated running header: hide it from
+the reading order (aria-hidden -> excluded from the PDF tag tree) so the real header
+is announced only once, at the start of the document. --}}
+<header class="page-header"{{#if isRepeated}} role="presentation" aria-hidden="true"{{/if}}>
   <section class="pagopa-header">
-    <img class="logo" src="assets/logo-pagoPa.svg" />
+    <img class="logo" alt="pagoPA" src="assets/logo-pagoPa.svg" />
+    {{#if isRepeated}}
+    {{!-- Continuation pages repeat the title visually, but the document must
+    expose a single <h1> or the heading outline skips a level --}}
+    <p class="title">Ricevuta di pagamento</p>
+    {{else}}
     <h1 class="title">Ricevuta di pagamento</h1>
+    {{/if}}
   </section>
   {{#if transaction.processedByPagoPA}}
   {{#if transaction.psp.logo}}
-  <dl class="psp-header">
+  <dl class="psp-header" role="paragraph">
     <dt>Per conto di</dt>
     <dd class="psp-logo">
-      <img alt={{transaction.psp.name}} src={{transaction.psp.logo}} />
+      <img alt="{{transaction.psp.name}}" src="{{transaction.psp.logo}}" />
     </dd>
   </dl>
   {{/if}}
