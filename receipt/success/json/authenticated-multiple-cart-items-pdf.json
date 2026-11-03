@@ -49,8 +49,7 @@
           "taxCode": "80415740580"
         },
         "subject": "Contributo amministrativo per il rilascio del passaporto",
-        "amount": "42,50",
-        "showBarcode": true
+        "amount": "42,50"
       },
       {
         "refNumber": {
@@ -66,8 +65,7 @@
           "taxCode": "82001760675"
         },
         "subject": "Multa per eccesso di velocità 1",
-        "amount": "72,00",
-        "showBarcode": true
+        "amount": "72,00"
       }
     ],
     "amountPartial": "114,50"

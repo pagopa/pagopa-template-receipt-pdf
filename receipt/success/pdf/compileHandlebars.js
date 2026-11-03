@@ -34,16 +34,6 @@ const template = Handlebars.compile(templateFile);
 // Load the data for the template
 const data = require("../json/authenticated-multiple-cart-items-pdf.json");
 
-// Pages are a fixed height with overflow:hidden: beyond the two pages'
-// capacity the items, the totals and the footer are silently clipped
-const itemsPerPage = require(`${helpersPath}/itemsPerPage`);
-const items = data.cart?.items ?? [];
-const maxCartItems = itemsPerPage(items, "first") + itemsPerPage(items, "next");
-if (items.length > maxCartItems) {
-  console.error(`❌ ${items.length} cart items exceed the ${maxCartItems} that fit: the receipt would be clipped.`);
-  process.exit(1);
-}
-
 // Generate the HTML
 const html = template(data);
 

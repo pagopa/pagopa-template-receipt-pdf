@@ -1,7 +1,9 @@
 "use strict";
 
 /* Checks the geometry of every barcode in template.html: narrow bar (X), bar
-   height and quiet zones. The PDF is printed from this same Chromium render. */
+   height and quiet zones. The PDF is printed from this same Chromium render.
+   Also checks that no page overflows: pages are a fixed height with
+   overflow:hidden, so whatever doesn't fit would be silently clipped. */
 const puppeteer = require("puppeteer");
 const path = require("path");
 
@@ -46,6 +48,19 @@ const htmlFile = path.resolve("template.html");
             );
         }
 
+        // `main` never shrinks (flex: 1 0 auto): content that doesn't fit spills
+        // past the wrapper's bottom, where `.page` clips it
+        const overflows = await page.$$eval(".page-wrapper", (wrappers) =>
+            wrappers.map((el) => el.scrollHeight - el.clientHeight)
+        );
+        overflows.forEach((px, i) => {
+            if (px > 1) {
+                errors.push(
+                    `Page ${i + 1} overflows by ${(px * MM_PER_PX).toFixed(1)} mm: its bottom would be clipped`
+                );
+            }
+        });
+
         // Pixels in a screenshot that aren't (near) white
         const inkPixels = (png) =>
             page.evaluate(async (src) => {
@@ -63,7 +78,16 @@ const htmlFile = path.resolve("template.html");
                 return ink;
             }, png);
 
-        for (const barcode of await page.$$(".transaction-detail-barcode")) {
+        // Every cart item carries two barcodes: creditor tax code and reference number
+        const cartItems = await page.$$eval(".transaction-detail-group", (els) => els.length);
+        const barcodes = await page.$$(".transaction-detail-barcode");
+        if (!cartItems || barcodes.length !== cartItems * 2) {
+            errors.push(
+                `Found ${barcodes.length} barcode(s) for ${cartItems} cart item(s): expected ${cartItems * 2} (2 per item)`
+            );
+        }
+
+        for (const barcode of barcodes) {
             count++;
             const box = await barcode.evaluate(async (el) => {
                 await el.decode();
@@ -113,9 +137,5 @@ const htmlFile = path.resolve("template.html");
         process.exit(1);
     }
 
-    console.log(
-        count
-            ? `✅ ${count} barcode(s) within X, bar height and quiet zone limits.`
-            : "✅ No barcodes to check."
-    );
+    console.log(`✅ ${count} barcode(s) within X, bar height and quiet zone limits.`);
 })();

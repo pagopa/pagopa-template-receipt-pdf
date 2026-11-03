@@ -230,28 +230,18 @@ hr {
   margin-block-end: var(--cart-item-spacing);
 }
 
+/* Barcode band above the creditor and the payment data, so the three columns
+   stay aligned */
 .transaction-detail-group {
   display: grid;
   grid-template-areas: "paymentSubject paymentSubject paymentSubject"
+    ". creditorBarcode paymentDataBarcode"
     "debtor creditor paymentData";
   grid-template-columns: 1fr 1fr 1fr;
   gap: 3mm;
 }
 
 .transaction-detail-group:not(:has(.transaction-detail-paymentSubject)) {
-  grid-template-areas:
-    "debtor creditor paymentData";
-}
-
-/* Barcode band above the creditor and the payment data, so the three columns
-   stay aligned */
-.transaction-detail-group:has(.transaction-detail-barcode) {
-  grid-template-areas: "paymentSubject paymentSubject paymentSubject"
-    ". creditorBarcode paymentDataBarcode"
-    "debtor creditor paymentData";
-}
-
-.transaction-detail-group:has(.transaction-detail-barcode):not(:has(.transaction-detail-paymentSubject)) {
   grid-template-areas:
     ". creditorBarcode paymentDataBarcode"
     "debtor creditor paymentData";

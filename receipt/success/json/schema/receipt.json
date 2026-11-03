@@ -199,10 +199,6 @@
                 },
                 "amount": {
                   "type": "string"
-                },
-                "showBarcode": {
-                  "type": "boolean",
-                  "description": "Render `payee.taxCode` and `refNumber.value` as Code 128 barcodes (e.g. required on passport receipts)"
                 }
               },
               "required": [
