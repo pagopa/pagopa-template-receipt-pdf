@@ -49,14 +49,23 @@ is announced only once, at the end of the document. --}}
 
   {{!-- No anchor in the repeated copy: it would emit a clickable link annotation
   that is absent from the tag tree --}}
-  <p>Serve aiuto? Visita
-    {{#if isRepeated}}
-    <span class="footer-link">pagopa.gov.it/assistenza</span>
-    {{else}}
-    <a class="footer-link" href="https://www.pagopa.gov.it/assistenza">pagopa.gov.it/assistenza</a>
+  <div class="footer-bottom">
+    <p>Serve aiuto? Visita
+      {{#if isRepeated}}
+      <span class="footer-link">pagopa.gov.it/assistenza</span>
+      {{else}}
+      <a class="footer-link" href="https://www.pagopa.gov.it/assistenza">pagopa.gov.it/assistenza</a>
+      {{/if}}
+      · ID ricevuta:
+      <strong class="transaction-id">{{serviceCustomerId}}</strong>
+    </p>
+
+    {{!-- Page indicator, only on multi-page receipts: the current page number is
+    prepended by a CSS counter (see .page-indicator::before). Always hidden from
+    the reading order: page numbers are pagination artifacts, not content --}}
+    {{#if (gt pageCount 1)}}
+    <p class="page-indicator" aria-hidden="true">{{pageCount}}</p>
     {{/if}}
-    · ID ricevuta:
-    <strong class="transaction-id">{{serviceCustomerId}}</strong>
-  </p>
+  </div>
 
 </footer>
