@@ -1,0 +1,153 @@
+{
+  "serviceCustomerId": "F57E2F8E-25FF-4183-AB7B-4A5EC1A96644",
+  "transaction": {
+    "timestamp": "24 ottobre 2022, 18:45:56",
+    "amount": "643,80",
+    "psp": {
+      "logo": "assets/nexi-logo.png",
+      "name": "Nexi",
+      "companyName": "Nexi Payments S.p.A.",
+      "address": "Corso Sempione",
+      "buildingNumber": "55",
+      "postalCode": "20149",
+      "city": "Milano",
+      "province": "MI",
+      "fee": {
+        "amount": "2,00"
+      }
+    },
+    "rrn": "1234567890",
+    "authCode": "9999999999",
+    "paymentMethod": {
+      "name": "Unionpay *1234",
+      "logo": "assets/unionpay.png",
+      "accountHolder": "Marzia Roccaraso",
+      "extraFee": false
+    },
+    "processedByPagoPA": true
+  },
+  "user": {
+    "data": {
+      "fullName": "Marzia Roccaraso",
+      "taxCode": "RCCMRZ88A52C409A"
+    },
+    "email": "nome.cognome@pagopa.it"
+  },
+  "cart": {
+    "items": [
+      {
+        "refNumber": {
+          "type": "codiceAvviso",
+          "value": "301234567890123416"
+        },
+        "debtor": {
+          "fullName": "Giuseppe Bianchi",
+          "taxCode": "BNCGSP70A12F205X"
+        },
+        "payee": {
+          "name": "Ministero dell'Economia e delle Finanze",
+          "taxCode": "80415740580"
+        },
+        "subject": "Contributo amministrativo per il rilascio del passaporto",
+        "amount": "42,50"
+      },
+      {
+        "refNumber": {
+          "type": "IUV",
+          "value": "123456789012345671"
+        },
+        "debtor": {
+          "fullName": "Giuseppe Bianchi",
+          "taxCode": "BNCGSP70A12F205X"
+        },
+        "payee": {
+          "name": "Comune di Controguerra",
+          "taxCode": "82001760675"
+        },
+        "subject": "Multa per eccesso di velocità",
+        "amount": "72,00"
+      },
+      {
+        "refNumber": {
+          "type": "codiceAvviso",
+          "value": "302001234567890128"
+        },
+        "debtor": {
+          "fullName": "Giuseppe Bianchi",
+          "taxCode": "BNCGSP70A12F205X"
+        },
+        "payee": {
+          "name": "Comune di Milano",
+          "taxCode": "01199250158"
+        },
+        "subject": "TARI 2024 - Rata 1",
+        "amount": "118,00"
+      },
+      {
+        "refNumber": {
+          "type": "codiceAvviso",
+          "value": "302001234567890235"
+        },
+        "debtor": {
+          "fullName": "Giuseppe Bianchi",
+          "taxCode": "BNCGSP70A12F205X"
+        },
+        "payee": {
+          "name": "Comune di Milano",
+          "taxCode": "01199250158"
+        },
+        "subject": "TARI 2024 - Rata 2",
+        "amount": "118,00"
+      },
+      {
+        "refNumber": {
+          "type": "IUV",
+          "value": "012345678901234567"
+        },
+        "debtor": {
+          "fullName": "Giuseppe Bianchi",
+          "taxCode": "BNCGSP70A12F205X"
+        },
+        "payee": {
+          "name": "Istituto Comprensivo Leonardo Da Vinci",
+          "taxCode": "80012340531"
+        },
+        "subject": "Contributo volontario anno scolastico 2024/2025",
+        "amount": "30,00"
+      },
+      {
+        "refNumber": {
+          "type": "codiceAvviso",
+          "value": "301000000123456789"
+        },
+        "debtor": {
+          "fullName": "Giuseppe Bianchi",
+          "taxCode": "BNCGSP70A12F205X"
+        },
+        "payee": {
+          "name": "ACI - Automobile Club d'Italia",
+          "taxCode": "00493410583"
+        },
+        "subject": "Tassa automobilistica 2024",
+        "amount": "245,30"
+      },
+      {
+        "refNumber": {
+          "type": "codiceAvviso",
+          "value": "301999888777666555"
+        },
+        "debtor": {
+          "fullName": "Giuseppe Bianchi",
+          "taxCode": "BNCGSP70A12F205X"
+        },
+        "payee": {
+          "name": "Agenzia delle Entrate",
+          "taxCode": "06363391001"
+        },
+        "subject": "Imposta di bollo",
+        "amount": "16,00"
+      }
+    ],
+    "amountPartial": "641,80"
+  }
+}

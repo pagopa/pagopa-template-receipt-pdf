@@ -2,10 +2,8 @@
 
   {{#if this.subject}}
     <div class="transaction-detail-paymentSubject">
-      <!-- Oggetto del pagamento (Carrello singolo) -->
-      {{#not this.length 1}}
-        <h2 class="paymentSubject">{{{this.subject}}}</h2>
-      {{/not}}
+      <!-- Oggetto del pagamento -->
+      <h2 class="paymentSubject">{{{this.subject}}}</h2>
     </div>
   {{/if}}
 
