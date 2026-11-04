@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - "receipt/success/pdf/helpers"
-      - "receipt/success/pdf/partials"
+      - "receipt/success/pdf/helpers/**"
+      - "receipt/success/pdf/partials/**"
 
   workflow_dispatch:
 
