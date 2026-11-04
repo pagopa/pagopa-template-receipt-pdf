@@ -1,6 +1,7 @@
 // Splits `items` into pages: `first` items on the first page, at most `next` on
 // each middle page and at most `last` on the final page, which leaves room for
-// the totals. The final page always keeps at least one item.
+// the totals. A single page is both first and last, so it must fit both. The
+// final page always keeps at least one item.
 // Usage: {{#each (paginate items first=2 next=3 last=2)}}…{{/each}}
 function paginate(items, options) {
   const list = Array.isArray(items) ? items : [];
@@ -9,10 +10,11 @@ function paginate(items, options) {
     throw new Error("paginate: `first`, `next` and `last` must be positive integers");
   }
 
-  if (list.length <= first) return [list];
+  if (list.length <= Math.min(first, last)) return [list];
 
-  const pages = [list.slice(0, first)];
-  let rest = list.slice(first);
+  const firstSize = Math.min(first, list.length - 1);
+  const pages = [list.slice(0, firstSize)];
+  let rest = list.slice(firstSize);
   while (rest.length > last) {
     const size = Math.min(next, rest.length - 1);
     pages.push(rest.slice(0, size));
