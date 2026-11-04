@@ -60,7 +60,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Titillium Web', sans-serif;
-  -webkit-print-color-adjust: exact;
+  counter-reset: receipt-page;
 }
 
 .page {
@@ -69,6 +69,7 @@ body {
   position: relative;
   box-sizing: border-box;
   page-break-after: always;
+  counter-increment: receipt-page;
   /* A4 width */
   width: 210mm;
   height: 296mm;
@@ -190,6 +191,23 @@ main,
 
 .footer-disclaimer *+* {
   margin-top: 1mm;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  column-gap: 5mm;
+}
+
+.page-indicator {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Current page number; the total is rendered by the template */
+.page-indicator::before {
+  content: counter(receipt-page) "/";
 }
 
 .transaction-id {

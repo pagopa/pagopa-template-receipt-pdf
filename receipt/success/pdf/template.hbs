@@ -36,7 +36,8 @@
 
   {{!-- Cart items per page: `first` on page 1, up to `next` on middle pages,
   up to `last` on the final page, with the totals --}}
-  {{#each (paginate cart.items first=2 next=3 last=2)}}
+  {{#with (paginate cart.items first=2 next=3 last=2) as |pages|}}
+  {{#each pages}}
   <div class="page">
     <div class="page-wrapper">
 
@@ -67,14 +68,15 @@
       {{!-- Footer -- real on the last page (closes the reading order), repeated
       running footer on the others --}}
       {{#if @last}}
-      {{> footer @root}}
+      {{> footer @root pageCount=pages.length}}
       {{else}}
-      {{> footer @root isRepeated=true}}
+      {{> footer @root isRepeated=true pageCount=pages.length}}
       {{/if}}
 
     </div>
   </div>
   {{/each}}
+  {{/with}}
 
 </body>
 
