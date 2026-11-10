@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "receipt/success/pdf/assets"
+      - "receipt/success/pdf/assets/**"
       - "receipt/success/pdf/style.css"
       - "receipt/success/pdf/template.hbs"
 
