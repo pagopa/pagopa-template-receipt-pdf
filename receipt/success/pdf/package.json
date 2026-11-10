@@ -8,16 +8,16 @@
   },
   "license": "ISC",
   "dependencies": {
-    "handlebars": "^4.7.8",
-    "puppeteer": "^22.4.0",
-    "uuid": "^9.0.1"
+    "handlebars": "^4.7.9",
+    "puppeteer": "^25.1.0",
+    "uuid": "^11.1.1"
   },
   "devDependencies": {
-    "prettier": "^2.7.1",
-    "stylelint": "^14.12.0",
-    "stylelint-prettier": "^2.0.0"
+    "prettier": "^3.8.3",
+    "stylelint": "^17.12.0",
+    "stylelint-prettier": "^5.0.3"
   },
   "engines": {
-    "node": ">=18 <=18"
+    "node": ">=22.12.0"
   }
 }
