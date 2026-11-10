@@ -156,6 +156,8 @@ main,
   text-transform: uppercase;
 }
 
+/* Keep older engine partials styled during separate template and partial releases. */
+footer,
 .page-footer {
   flex-shrink: 0;
   width: 100%;
@@ -168,6 +170,7 @@ main,
   row-gap: 5mm;
 }
 
+footer *,
 .page-footer * {
   margin: 0;
 }
