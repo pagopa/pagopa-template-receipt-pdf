@@ -9,79 +9,74 @@
 </head>
 
 <body>
-  {{!-- Page 1 shows the first 2 cart items, page 2 the rest. If you change it,
-  update every `2` below --}}
-  <div class="page">
-    <div class="page-wrapper">
+  {{!-- Content of a page: the transaction data opens the first page, the
+  totals close the last one --}}
+  {{#*inline "pageContent"}}
+  <div class="content-grid">
 
-      {{!-- Header --}}
-      {{> header}}
+    {{!-- Transaction Data: summary about the PSP, payment methods, etc… --}}
+    {{#if @first}}
+    {{> transactionData @root}}
+    {{/if}}
 
-      <main>
-        <div class="content-grid">
+    <section class="transaction-detail">
+      {{#each this}}
 
-          {{!-- Transaction Data: summary about the PSP, payment methods, etc… --}}
-          {{> transactionData}}
+      {{> singleCartItem}}
 
-          <section class="transaction-detail">
-            {{#each (slice cart.items 0 2)}}
+      {{/each}}
+    </section>
 
-            {{> singleCartItem}}
+    {{#if @last}}
+    {{> transactionTotals @root}}
+    {{/if}}
 
-            {{/each}}
-          </section>
-
-          {{#if (lte cart.items.length 2)}}
-          {{> transactionTotals}}
-          {{/if}}
-
-        </div>
-      </main>
-
-      {{!-- Footer -- running footer when a continuation page follows, real when
-      the receipt fits on a single page --}}
-      {{> footer isRepeated=(gt cart.items.length 2)}}
-
-    </div>
   </div>
+  {{/inline}}
 
-  {{#if (gt cart.items.length 2)}}
-
+  {{!-- Cart items per page: `first` on page 1, up to `next` on middle pages,
+  up to `last` on the final page, with the totals --}}
+  {{#with (paginate cart.items first=2 next=3 last=2) as |pages|}}
+  {{#each pages}}
   <div class="page">
     <div class="page-wrapper">
 
-      {{!-- Header -- repeated running header (hidden from reading order) --}}
-      {{> header isRepeated=true}}
+      {{!-- Header -- real on the first page, repeated running header (hidden
+      from reading order) on the others --}}
+      {{#if @first}}
+      {{> header @root}}
+      {{else}}
+      {{> header @root isRepeated=true}}
+      {{/if}}
 
       {{!-- MAIN CONTENT -- START --}}
+      {{#if @first}}
+      <main>
+        {{> pageContent}}
+      </main>
+      {{else}}
       {{!-- Continuation block: the document already exposes one <main> on the
       first page, and only one <main> is allowed, so this repeat is a plain
       <section> instead. It is intentionally unlabelled: it follows <main> in
       reading order, and PDF readers have no landmark navigation --}}
       <section class="main-continuation">
-        <div class="content-grid">
-
-          <section class="transaction-detail">
-            {{#each (slice cart.items 2)}}
-
-            {{> singleCartItem}}
-
-            {{/each}}
-          </section>
-
-          {{> transactionTotals}}
-
-        </div>
+        {{> pageContent}}
       </section>
+      {{/if}}
       {{!-- MAIN CONTENT -- END --}}
 
-      {{!-- Footer -- real (last occurrence, closes the reading order) --}}
-      {{> footer}}
+      {{!-- Footer -- real on the last page (closes the reading order), repeated
+      running footer on the others --}}
+      {{#if @last}}
+      {{> footer @root pageCount=pages.length}}
+      {{else}}
+      {{> footer @root isRepeated=true pageCount=pages.length}}
+      {{/if}}
 
     </div>
   </div>
-
-  {{/if}}
+  {{/each}}
+  {{/with}}
 
 </body>
 
