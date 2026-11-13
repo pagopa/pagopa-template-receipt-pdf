@@ -186,7 +186,7 @@
                       "type": "string"
                     },
                     "taxCode": {
-                      "type": "number"
+                      "type": "string"
                     }
                   },
                   "required": [
