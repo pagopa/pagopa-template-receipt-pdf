@@ -11,7 +11,7 @@
   "dependencies": {
     "handlebars": "^4.7.8",
     "puppeteer": "^25.3.0",
-    "uuid": "^9.0.1"
+    "uuid": "^11.0.0"
   },
   "devDependencies": {
     "html-validate": "^11.5.6",
